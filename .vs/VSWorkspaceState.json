@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MazeGame",
+    "\\MazeGame\\MazeGame"
   ],
+  "SelectedNode": "\\MazeGame\\MazeGame\\Map_Level.cs",
   "PreviewInSolutionExplorer": false
 }
