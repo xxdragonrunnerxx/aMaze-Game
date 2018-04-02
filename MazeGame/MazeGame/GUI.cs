@@ -1,4 +1,19 @@
-﻿using System;
+﻿/***********************************************************
+  * Bradley Massey
+  * Daniel Reiter
+  * Erika Goad
+  * Galina Vitvitskaya
+  * 4/1/2018
+  * 
+  * Program: MazeGame
+  * 
+  * Class: GUI
+  * 
+  * Variables:
+  * 
+  * Methods:
+  ***********************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +23,6 @@ namespace MazeGame
 {
     class GUI
     {
+
     }
 }
