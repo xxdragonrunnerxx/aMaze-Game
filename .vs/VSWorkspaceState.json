@@ -2,8 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\MazeGame",
-    "\\MazeGame\\MazeGame"
+    "\\MazeGame\\MazeGame",
+    "\\MazeGame\\MazeGame\\bin",
+    "\\MazeGame\\MazeGame\\bin\\Debug",
+    "\\MazeGame\\MazeGame\\bin\\Release",
+    "\\MazeGame\\MazeGame\\obj",
+    "\\MazeGame\\MazeGame\\obj\\Debug",
+    "\\MazeGame\\MazeGame\\obj\\Debug\\TempPE",
+    "\\MazeGame\\MazeGame\\obj\\Release",
+    "\\MazeGame\\MazeGame\\Properties"
   ],
-  "SelectedNode": "\\MazeGame\\MazeGame\\Map_Level.cs",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\MazeGame",
+  "PreviewInSolutionExplorer": true
 }
