@@ -1,0 +1,15 @@
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\MazeGame.csprojResolveAssemblyReference.cache
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\GUI.g.cs
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\App.g.cs
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\MazeGame_MarkupCompile.cache
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\MazeGame_MarkupCompile.lref
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\bin\Debug\MazeGame.exe.config
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\bin\Debug\MazeGame.exe
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\bin\Debug\MazeGame.pdb
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\GUI.baml
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\MazeGame.g.resources
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\MazeGame.Properties.Resources.resources
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\MazeGame.csproj.GenerateResource.cache
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\MazeGame.csproj.CoreCompileInputs.cache
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\MazeGame.exe
+F:\Google Drive\School\CS310\maze\MazeGame\MazeGame\obj\Debug\MazeGame.pdb

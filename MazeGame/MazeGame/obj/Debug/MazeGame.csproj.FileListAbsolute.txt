@@ -1,1 +1,0 @@
-F:\Google Drive\School\CS310\MazeGame\MazeGame\bin\Debug\MazeGame.exe.config

@@ -2,16 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\MazeGame",
-    "\\MazeGame\\MazeGame",
-    "\\MazeGame\\MazeGame\\bin",
-    "\\MazeGame\\MazeGame\\bin\\Debug",
-    "\\MazeGame\\MazeGame\\bin\\Release",
-    "\\MazeGame\\MazeGame\\obj",
-    "\\MazeGame\\MazeGame\\obj\\Debug",
-    "\\MazeGame\\MazeGame\\obj\\Debug\\TempPE",
-    "\\MazeGame\\MazeGame\\obj\\Release",
-    "\\MazeGame\\MazeGame\\Properties"
+    "\\MazeGame\\src",
+    "\\MazeGame\\src\\Images"
   ],
-  "SelectedNode": "\\MazeGame",
-  "PreviewInSolutionExplorer": true
+  "PreviewInSolutionExplorer": false
 }
