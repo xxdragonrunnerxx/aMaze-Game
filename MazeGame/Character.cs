@@ -23,6 +23,9 @@ namespace MazeGame
 {
     class Character
     {
-
+        /* For the Character class we need to create the variables for the items, keys, usable items,notes, POV
+         * we also need to make the methods to get/set
+         * follow diagram 4A
+         */
     }
 }

@@ -41,6 +41,12 @@ namespace MazeGame
             InitializeComponent();
         }
 
-        
+        private void MENUButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuShadow.Visibility = Visibility.Visible;
+            MenuGrid.Visibility = Visibility.Visible;
+
+
+        }
     }
 }

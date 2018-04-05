@@ -27,6 +27,9 @@ using System.Threading.Tasks;
 
 namespace MazeGame
 {
+    /*We need to create the map loader
+     * 
+     */
     class Map_Level
     {
         int[] location = new int[3];//(x,y) {1=N, 2=S, 3=E, 4=W}
