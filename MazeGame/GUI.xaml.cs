@@ -36,11 +36,25 @@ namespace MazeGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        //global instance of game
+        //game bigB = new game();
         public MainWindow()
         {
             InitializeComponent();
+            //Game.menu();
+            //while(game.playing()){};
         }
 
-        
+        private void MENUButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuShadow.Visibility = Visibility.Visible;
+            MenuGrid.Visibility = Visibility.Visible;
+
+
+        }
+
+        //example button
+        //will pass move to game.option(1)
+        //get new images and story = game.newLocation()
     }
 }

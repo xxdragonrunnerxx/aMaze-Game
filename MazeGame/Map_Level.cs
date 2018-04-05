@@ -3,104 +3,190 @@
   * Daniel Reiter
   * Erika Goad
   * Galina Vitvitskaya
-  * 4/1/2018
+  * 4/10/2018
   * 
   * Program: MazeGame
   * 
   * Class: Map_Level
   * 
-  * Variables:
-  * location[](int)
-  * currentLocation[](int)
-  * story[](int)
-  * map[][](int)
-  * 
-  * Methods:
-  * int[] getStory(location) Bradley
-  * 
+  * Map<coord> map;
+  * coord[] view;
+  * location currentLocation;
+  *
+  * Program loads map from a text file to a map object stores a 
+  * current loction object, update visiblity to the map, retrieves 
+  * and return front and side views as coordinate objects
   ***********************************************************/
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.IO;
+using System.ComponentModel;
 
 namespace MazeGame
 {
+    
     class Map_Level
     {
-        int[] location = new int[3];//(x,y) {1=N, 2=S, 3=E, 4=W}
-        int[] currentLocation = new int[3];
-        int[] story = new int[3];
-        int[][] map;
+        //class level variables
+        private StreamReader reader;
+        private Map<coord> map;
+        private coord[] view;
+        private location currentLocation;
 
-        private int[] getStory(int[] loc) //Bradley
+        // constructor
+        public Map_Level(int level)
         {
-            byte OOBx = 1;//Out of Bounds Flag: 0=low, 1=none, 2=high
-            byte OOBy = 1;//Out of Bounds Flag: 0=low, 1=none, 2=high
-            int x = loc[0], y = loc[1], z = loc[2];//split location (x,y) z={1=N, 2=S, 3=E, 4=W}
-            sbyte sign = 1;
+            map = loadMap(level);
+            setVisible();
+            view = new coord[3];
+        }
 
-            if (z == 1 || z == 3)//if North or East swap sign
-                sign = Convert.ToSByte(-sign);
-            {//check for "Out of Bounds" issues with map boundries.
-                if (x <= 0 || x >= map.GetLength(0))
-                {
-                    if (x <= 0)
-                        OOBx = 0;
-                    else
-                        OOBx = 2;
-                }
-                else
-                    OOBx = 1;
-                if (y <= 0 || y >= map.GetLength(1))
-                {
-                    if (y <= 0)
-                        OOBy = 0;
-                    else
-                        OOBy = 2;
-                }
-                else
-                    OOBy = 1;
-            }
-
-            switch (z)
+        // function to load a level from a file
+        private Map<coord> loadMap(int l)
+        {
+            String tempString = getPath() + "/Level/level" + l + ".txt";
+            reader = new StreamReader(tempString); //sets a stream reader to the selected file
+            tempString = reader.ReadLine();
+            String[] tempArr = tempString.Split(',');
+            String[] tempCord = tempArr[2].Split('/');
+            currentLocation = new location(tempCord[0],tempCord[1],tempCord[2]);
+            int x = int.Parse(tempArr[0]) + 2;
+            int y = int.Parse(tempArr[1]) + 2;
+            Map<coord> lMap = new Map<coord>(x, y);
+            for (int i = 0; i < y; i++)
             {
-                case 1://North
-                case 2://South
-                    if (OOBx == 1 || (OOBx > 1 && sign == -1) || (OOBx < 1 && sign == 1))
-                        story[0] = map[x + sign][y];
-                    else
-                        story[0] = 0;
-                    if (OOBy == 1 || (OOBy < 1 && sign == 1) || (OOBy > 1 && sign == -1))
-                        story[1] = map[x][y + sign];
-                    else
-                        story[1] = 0;
-                    if (OOBx == 1 || (OOBx < 1 && sign == -1) || (OOBx > 1 && sign == 1))
-                        story[2] = map[x - sign][y];
-                    else
-                        story[2] = 0;
-                    break;
-                case 3://East
-                case 4://West
-                    if (OOBy == 1 || (OOBy < 1 && sign == 1) || (OOBy > 1 && sign == -1))
-                        story[0] = map[x][y + sign];
-                    else
-                        story[0] = 0;
-                    if (OOBx == 1 || (OOBx < 1 && sign == -1) || (OOBx > 1 && sign == 1))
-                        story[1] = map[x - sign][y];
-                    else
-                        story[1] = 0;
-                    if (OOBy == 1 || (OOBy < 1 && sign == -1) || (OOBy > 1 && sign == 1))
-                        story[2] = map[x][y - sign];
-                    else
-                        story[2] = 0;
-                    break;
-                default:
-                    story = null;
-                    break;
-            }//end switch(z) 
-            return story;//return left, front, right of player or null if no location is found
-        }//end getStory(loc[])
+                if (i == 0 || i == (y - 1))
+                {
+                    for (int j = 0; j < x; j++)
+                    {
+
+                        lMap[i, j].Vis = true;
+                        lMap[i, j].Image = -1;
+                        lMap[i, j].Story = -1;
+                        lMap[i, j].Tile = -1;
+                    }
+                }
+                else {
+                    tempString = reader.ReadLine();
+                    tempArr = tempString.Split(',');
+                    for (int j = 0; j < x; j++)
+                    {
+                        tempCord = tempArr[j].Split('/');
+                        if (j == 0 || j == x - 1)
+                        {
+                            lMap[i, j].Vis = true;
+                            lMap[i, j].Image = -1;
+                            lMap[i, j].Story = -1;
+                            lMap[i, j].Tile = -1;
+                        }
+                        else
+                        {
+                            if (int.Parse(tempCord[0]) == 1)
+                            {
+                                lMap[i, j].Vis = true;
+                            }
+                            else
+                            {
+                                lMap[i, j].Vis = false;
+                            }
+                            lMap[i, j].Image = int.Parse(tempCord[1]);
+                            lMap[i, j].Story = int.Parse(tempCord[2]);
+                            lMap[i, j].Tile = int.Parse(tempCord[3]);
+                        }
+                    }
+                }
+            }
+            return lMap;
+        }
+
+        // function returns the coords in front and to the sides of a location 
+        public void setView(location loc)
+        {
+            Loc = loc;
+            setVisible();
+            int i = 1;
+            if(loc.Z%2 > 0)
+            {
+                i = -1;
+            }
+            if (loc.Z < 3)
+            {
+                view[0] = map[x + i, y];
+                view[1] = map[x, y + i];
+                view[2] = map[x - i, y];
+            }
+            else
+            {
+                view[0] = map[x, y + i];
+                view[1] = map[x + i, y];
+                view[2] = map[x, y - i];
+            } 
+        }
+
+        // fuction set all square surounding currentloction to visble
+        public void setVisible()
+        {
+            int x = currentLocation.X;
+            int y = currentLocaton.Y;
+            map[x, y].Vis = true;
+            map[x + 1, y].Vis = true;
+            map[x - 1, y].Vis = true;
+            map[x, y + 1].Vis = true;
+            map[x, y - 1].Vis = true;
+        }
+
+
+
+        //method returns the path at the .snl level
+        private string getPath()
+        {
+            string s = Directory.GetCurrentDirectory();
+            //int i = s.IndexOf(Application.ProductName);
+            //string path = Path.GetDirectoryName(Application.ExecutablePath);
+            //s = s.Substring(0, i + Application.ProductName.Length + 1);
+
+            return s;
+        }
+
+        // set properties for variables
+        public location Loc
+        {
+            get
+            {
+                return currentLocation;
+            }
+            set
+            {
+                currentLocation = value;
+            }
+            
+        }
+
+        public coord rightView
+        {
+            get
+            {
+                return view[0];
+            }
+        }
+        public coord frontView
+        {
+            get
+            {
+                return view[0];
+            }
+        }
+        public coord leftView
+        {
+            get
+            {
+                return view[0];
+            }
+        }
+
     }
 }
