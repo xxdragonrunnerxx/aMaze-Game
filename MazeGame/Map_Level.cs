@@ -16,8 +16,8 @@
   * map[][](int)
   * 
   * Methods:
-  * int[] getStory(location) Bradley
-  * 
+  * int[] getStory(int[] location) Bradley
+  * void miniMap(string[][] miniMap) Bradley
   ***********************************************************/
 using System;
 using System.Collections.Generic;
@@ -106,7 +106,7 @@ namespace MazeGame
             return story;//return left, front, right of player or null if no location is found
         }//end getStory(loc[])
 
-        public void miniMap(string[][] map)
+        public void miniMap(string[][] map) //Bradley
         {
             int width = map.GetLength(0);
             int height = map.GetLength(1);
