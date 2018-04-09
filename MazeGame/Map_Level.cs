@@ -105,5 +105,20 @@ namespace MazeGame
             }//end switch(z) 
             return story;//return left, front, right of player or null if no location is found
         }//end getStory(loc[])
+
+        public void miniMap(string[][] map)
+        {
+            int width = map.GetLength(0);
+            int height = map.GetLength(1);
+            //iterate from the left to the right then top to bottom
+            for (int y = 0; y < width; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    //check and update mini map
+                }
+            }
+        }
+
     }
 }
