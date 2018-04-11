@@ -41,8 +41,8 @@ namespace MazeGame
         public Character(String _name, int life, int keyNum, location _loc)
         {
             name = _name;
-            status(life, keyNum);
-            Loc = _loc;
+            status = new Items(life, keyNum);
+            loc = _loc;
         }
 
         // function to check if character is alive
@@ -60,7 +60,7 @@ namespace MazeGame
             }
             get
             {
-               return statue.life;
+               return status.Life;
             }
         }
 
@@ -72,7 +72,7 @@ namespace MazeGame
             }
             get
             {
-               return statue.Keys;
+               return status.Keys;
             }
         }
 

@@ -40,15 +40,21 @@ namespace MazeGame
         //game bigB = new game();
         public MainWindow()
         {
+            //System.Windows.Media.ImageSource lImage = new BitmapImage(new Uri("pack://application:,,,/MazeGame;src\\Images\\index.png"));
+            //LeftPanel.Source = lImage;
             InitializeComponent();
+            //RightImage = "src\\Images\\index.png";
+            //System.Windows.Media.ImageSource lImage = "src\\Images\\index.png";
+            
             //Game.menu();
             //while(game.playing()){};
         }
 
         private void MENUButton_Click(object sender, RoutedEventArgs e)
         {
-            MenuShadow.Visibility = Visibility.Visible;
-            MenuGrid.Visibility = Visibility.Visible;
+            //MenuShadow.Visibility = Visibility.Visible;
+            //MenuGrid.Visibility = Visibility.Visible;
+            
 
 
         }
@@ -56,5 +62,14 @@ namespace MazeGame
         //example button
         //will pass move to game.option(1)
         //get new images and story = game.newLocation()
+
+        //public static readonly DependencyProperty ImageRightProperty =
+        //DependencyProperty.Register("LeftPanel", typeof(string), typeof(MainWindow));
+
+        //public string leftImage
+        //{
+        //    get { return (string)GetValue(ImageRightProperty); }
+        //    set { SetValue(ImageRightProperty, value); }
+        //}
     }
 }

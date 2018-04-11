@@ -37,7 +37,6 @@ C:\Users\danre\Source\Repos\aMaze-Game\MazeGame\obj\Debug\GUI.g.cs
 C:\Users\danre\Source\Repos\aMaze-Game\MazeGame\obj\Debug\App.g.cs
 C:\Users\danre\Source\Repos\aMaze-Game\MazeGame\obj\Debug\MazeGame_MarkupCompile.cache
 C:\Users\danre\Source\Repos\aMaze-Game\MazeGame\obj\Debug\MazeGame_MarkupCompile.lref
-C:\Users\danre\Source\Repos\aMaze-Game\MazeGame\obj\Debug\App.baml
 C:\Users\danre\Source\Repos\aMaze-Game\MazeGame\obj\Debug\GUI.baml
 C:\Users\danre\Source\Repos\aMaze-Game\MazeGame\obj\Debug\MazeGame.g.resources
 C:\Users\danre\Source\Repos\aMaze-Game\MazeGame\obj\Debug\MazeGame.Properties.Resources.resources
