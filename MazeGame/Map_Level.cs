@@ -48,12 +48,12 @@ namespace MazeGame
         // function to load a level from a file
         private Map<coord> loadMap(int l)
         {
-            String tempString = getPath() + "/src/level" + l + ".txt";
+            String tempString = getPath() + "/Level/level" + l + ".txt";
             reader = new StreamReader(tempString); //sets a stream reader to the selected file
             tempString = reader.ReadLine();
             String[] tempArr = tempString.Split(',');
             String[] tempCord = tempArr[2].Split('/');
-            currentLocation = new location(Convert.ToInt32(tempCord[0]), Convert.ToInt32(tempCord[1]), Convert.ToInt32(tempCord[2]));
+            currentLocation = new location(tempCord[0], tempCord[1], tempCord[2]);
             int x = int.Parse(tempArr[0]) + 2;
             int y = int.Parse(tempArr[1]) + 2;
             Map<coord> lMap = new Map<coord>(x, y);
@@ -116,15 +116,15 @@ namespace MazeGame
             }
             if (loc.Z < 3)
             {
-                view[0] = map[Loc.X + i, Loc.Y];
-                view[1] = map[Loc.X, Loc.Y + i];
-                view[2] = map[Loc.X - i, Loc.Y];
+                view[0] = map[x + i, y];
+                view[1] = map[x, y + i];
+                view[2] = map[x - i, y];
             }
             else
             {
-                view[0] = map[Loc.X, Loc.Y + i];
-                view[1] = map[Loc.X + i, Loc.Y];
-                view[2] = map[Loc.X, Loc.Y - i];
+                view[0] = map[x, y + i];
+                view[1] = map[x + i, y];
+                view[2] = map[x, y - i];
             }
         }
 
@@ -132,7 +132,7 @@ namespace MazeGame
         public void setVisible()
         {
             int x = currentLocation.X;
-            int y = currentLocation.Y;
+            int y = currentLocaton.Y;
             map[x, y].Vis = true;
             map[x + 1, y].Vis = true;
             map[x - 1, y].Vis = true;
