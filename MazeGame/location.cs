@@ -28,6 +28,9 @@ namespace MazeGame
     {
         // global variables
         private int[] loc;
+        private string v1;
+        private string v2;
+        private string v3;
 
         // constructor
         public location()
@@ -39,9 +42,9 @@ namespace MazeGame
         public location(int x, int y, int z)
         {
             loc = new int[3];
-            X = x;
-            Y = y;
-            Z = z;
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
         }
 
 
