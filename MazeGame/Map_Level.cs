@@ -178,14 +178,14 @@ namespace MazeGame
         {
             get
             {
-                return view[0];
+                return view[1];
             }
         }
         public coord leftView
         {
             get
             {
-                return view[0];
+                return view[2];
             }
         }
 

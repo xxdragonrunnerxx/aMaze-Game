@@ -36,6 +36,8 @@ namespace MazeGame
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        int[] panelValue = { 0, 0, 0 };
         //global instance of game
         //game bigB = new game();
         public MainWindow()
@@ -55,6 +57,17 @@ namespace MazeGame
         {
             MenuShadow.Visibility = Visibility.Hidden;
             MenuGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            LeftPanel1.Visibility = Visibility.Hidden;
+            LeftPanel2.Visibility = Visibility.Visible;
+        }
+
+        private void Button3_Click(object sender, RoutedEventArgs e)
+        {
+            StoryBlock.Text = "I have entered new text.";
         }
 
         //example button

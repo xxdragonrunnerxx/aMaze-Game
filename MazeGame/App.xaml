@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:MazeGame"
              StartupUri="GUI.xaml">
     <Application.Resources>
-        <ImageSource x:Key="test1">C:\Users\xxdra\source\repos\aMaze-Game\MazeGame\src\Images\Key.png</ImageSource>
+        <ImageSource x:Key="test1">source\Images\Key.png</ImageSource>
         <ImageSource x:Key="test2">C:\Users\xxdra\source\repos\aMaze-Game\MazeGame\src\Images\map@2x.png</ImageSource>
         <ImageSource x:Key="tall">C:\Users\xxdra\source\repos\aMaze-Game\MazeGame\src\Images\tall.png</ImageSource>
     </Application.Resources>
