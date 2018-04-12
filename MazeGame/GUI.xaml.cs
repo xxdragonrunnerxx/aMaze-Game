@@ -49,8 +49,12 @@ namespace MazeGame
         {
             MenuShadow.Visibility = Visibility.Visible;
             MenuGrid.Visibility = Visibility.Visible;
+        }
 
-
+        private void RETURN_Click(object sender, RoutedEventArgs e)
+        {
+            MenuShadow.Visibility = Visibility.Hidden;
+            MenuGrid.Visibility = Visibility.Hidden;
         }
 
         //example button
