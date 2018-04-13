@@ -11,10 +11,12 @@
             <RowDefinition Height="570*"/>
             <RowDefinition Height="299*"/>
         </Grid.RowDefinitions>
-        <Image x:Name="LeftPanel1" Source ="source/Images/tall.jpg" HorizontalAlignment="Left" Height="870" Margin="0,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False"/>
-        <Image x:Name="LeftPanel2" Source ="source/Images/index.png" HorizontalAlignment="Left" Height="870" Margin="0,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
-        <Image x:Name="CenterPanel" Source ="source/Images/tall.jpg"  HorizontalAlignment="Left" Height="870" Margin="497,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
-        <Image x:Name="RightPanel" Source ="source/Images/tall.jpg" HorizontalAlignment="Left" Height="870" Margin="994,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
+        <Image x:Name="LeftPanel1" Source ="source/Images/Left.png" HorizontalAlignment="Left" Height="870" Margin="0,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
+        <Image x:Name="LeftPanel2" Source ="source/Images/LeftCave.png" HorizontalAlignment="Left" Height="870" Margin="0,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
+        <Image x:Name="CenterPanel1" Source ="source/Images/Center.png"  HorizontalAlignment="Left" Height="870" Margin="497,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
+        <Image x:Name="CenterPanel2" Source ="source/Images/CenterCave.png" HorizontalAlignment="Left" Height="870" Margin="497,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
+        <Image x:Name="RightPanel1" Source ="source/Images/Right.png" HorizontalAlignment="Left" Height="870" Margin="994,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
+        <Image x:Name="RightPanel2" Source ="source/Images/RightCave.png" HorizontalAlignment="Left" Height="870" Margin="994,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
         <ToolBar x:Name="ToolBar" Height="50" VerticalAlignment="Top" Margin="1,0,0,0" HorizontalAlignment="Left" Width="1491" Opacity="0.8">
             <Image x:Name="Key1" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
             <Image x:Name="Key2" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
@@ -50,9 +52,9 @@
         <Rectangle x:Name="MenuShadow" Fill="Black" HorizontalAlignment="Left" Height="900" Margin="0,0,0,0" VerticalAlignment="Top" Width="1500"  Grid.RowSpan="2" Stretch="Fill" Opacity="0.9" Visibility="Hidden"/>
         <Grid x:Name="MenuGrid" Height="500" Margin="502,125,502,0" VerticalAlignment="Top" Grid.RowSpan="2" Visibility="Hidden">
             <Button x:Name="RETURN" Content="RETURN" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" Width="487" Click="RETURN_Click"/>
-            <Button x:Name="Button2" Content="Button2" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,100,0,0" Click="Button2_Click"/>
-            <Button x:Name="Button3" Content="Button3" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,200,0,0" Click="Button3_Click"/>
-            <Button x:Name="Button4" Content="Button4" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,300,0,0"/>
+            <Button x:Name="Cave" Content="Cave" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,100,0,0" Click="Button2_Click"/>
+            <Button x:Name="Text" Content="Text" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,200,0,0" Click="Button3_Click"/>
+            <Button x:Name="Wall" Content="Wall" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,300,0,0" Click="Button4_Click"/>
             <Button x:Name="Button5" Content="Button5" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,400,0,0"/>
         </Grid>
     </Grid>

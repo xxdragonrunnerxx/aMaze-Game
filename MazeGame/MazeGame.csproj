@@ -113,5 +113,15 @@
     <Resource Include="source\Images\Map.png" />
     <Resource Include="source\Images\test.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="source\Images\Background.png" />
+    <Resource Include="source\Images\BackgroundCave.png" />
+    <Resource Include="source\Images\Center.png" />
+    <Resource Include="source\Images\CenterCave.png" />
+    <Resource Include="source\Images\Left.png" />
+    <Resource Include="source\Images\LeftCave.png" />
+    <Resource Include="source\Images\Right.png" />
+    <Resource Include="source\Images\RightCave.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

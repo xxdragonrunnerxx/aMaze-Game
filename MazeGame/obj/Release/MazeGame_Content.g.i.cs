@@ -8,15 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/back%20button@2x.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/back%20button.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/hint@2x.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/hint.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/index.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/key@2x.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/key.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/map@2x.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/map.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/test.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/background.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/backgroundcave.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/center.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/centercave.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/left.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/leftcave.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/right.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("source/images/rightcave.png")]
 
 
