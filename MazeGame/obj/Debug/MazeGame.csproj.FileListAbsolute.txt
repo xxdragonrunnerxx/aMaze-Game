@@ -28,7 +28,6 @@ C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Debug\MazeGame.csproj.Genera
 C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Debug\MazeGame.csproj.CoreCompileInputs.cache
 C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Debug\MazeGame.exe
 C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Debug\MazeGame.pdb
-C:\Users\xxdra\source\repos\aMaze-Game\MazeGame\obj\Debug\App.baml
 C:\Users\danre\Source\Repos\aMaze-Game\MazeGame\bin\Debug\MazeGame.exe.config
 C:\Users\danre\Source\Repos\aMaze-Game\MazeGame\bin\Debug\MazeGame.exe
 C:\Users\danre\Source\Repos\aMaze-Game\MazeGame\bin\Debug\MazeGame.pdb

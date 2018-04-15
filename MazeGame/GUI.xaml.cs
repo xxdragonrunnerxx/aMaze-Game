@@ -38,13 +38,36 @@ namespace MazeGame
     {
         //What panel is set to visable now 
         int[] panelValue = { 1, 1, 1 };//Bradley
+<<<<<<< HEAD
+        bool[,] mapView = new bool[5, 5];
+
+=======
+>>>>>>> 70c441e23404444d35097dfa57b50351ca87d4c1
         //global instance of game
         //game bigB = new game();
         public MainWindow()
         {
+            for (int i = 0; i < mapView.GetLength(0); i++)
+            {
+                for (int j = 0; j < mapView.GetLength(1); j++)
+                {
+                    mapView[i, j] = false;
+                }
+
+            }
             InitializeComponent();
             //Game.menu();
             //while(game.playing()){};
+        }
+
+        public void miniMapVisable(int x, int y)
+        {
+            mapView[x, y] = true;
+        }
+
+        private bool isVisableMap(int x, int y)
+        {
+            return mapView[x, y];
         }
 
         private void MENUButton_Click(object sender, RoutedEventArgs e)
@@ -52,6 +75,7 @@ namespace MazeGame
             MenuShadow.Visibility = Visibility.Visible;
             MenuGrid.Visibility = Visibility.Visible;
         }
+<<<<<<< HEAD
 
         private void RETURN_Click(object sender, RoutedEventArgs e)
         {
@@ -78,6 +102,34 @@ namespace MazeGame
             StoryBlock.Text = "I have entered new text.";
         }
 
+=======
+
+        private void RETURN_Click(object sender, RoutedEventArgs e)
+        {
+            MenuShadow.Visibility = Visibility.Hidden;
+            MenuGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                panelValue[i] = 2;
+            }
+            LeftPanel1.Visibility = Visibility.Hidden;
+            LeftPanel2.Visibility = Visibility.Visible;
+            CenterPanel1.Visibility = Visibility.Hidden;
+            CenterPanel2.Visibility = Visibility.Visible;
+            RightPanel1.Visibility = Visibility.Hidden;
+            RightPanel2.Visibility = Visibility.Visible;
+        }
+
+        private void Button3_Click(object sender, RoutedEventArgs e)
+        {
+            StoryBlock.Text = "I have entered new text.";
+        }
+
+>>>>>>> 70c441e23404444d35097dfa57b50351ca87d4c1
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < 3; i++)
@@ -90,6 +142,204 @@ namespace MazeGame
             CenterPanel2.Visibility = Visibility.Hidden;
             RightPanel1.Visibility = Visibility.Visible;
             RightPanel2.Visibility = Visibility.Hidden;
+<<<<<<< HEAD
+        }
+
+        private void Map_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < mapView.GetLength(0); i++)
+            {
+                for (int j = 0; j < mapView.GetLength(1); j++)
+                {
+                    setMapVisability(i, j);
+                }
+
+            }
+            MiniMap.Visibility = Visibility.Visible;
+        }
+
+        private void setMapVisability(int i, int j)
+        {
+            switch (i)
+            {
+                case 0:
+                    switch (j)
+                    {
+                        case 0:
+                            if (isVisableMap(i, j))
+                                Map0_0.Visibility = Visibility.Visible;
+                            else
+                                Map0_0.Visibility = Visibility.Hidden;
+                            break;
+                        case 1:
+                            if (isVisableMap(i, j))
+                                Map0_1.Visibility = Visibility.Visible;
+                            else
+                                Map0_1.Visibility = Visibility.Hidden;
+                            break;
+                        case 2:
+                            if (isVisableMap(i, j))
+                                Map0_2.Visibility = Visibility.Visible;
+                            else
+                                Map0_2.Visibility = Visibility.Hidden;
+                            break;
+                        case 3:
+                            if (isVisableMap(i, j))
+                                Map0_3.Visibility = Visibility.Visible;
+                            else
+                                Map0_3.Visibility = Visibility.Hidden;
+                            break;
+                        default:
+                            if (isVisableMap(i, j))
+                                Map0_4.Visibility = Visibility.Visible;
+                            else
+                                Map0_4.Visibility = Visibility.Hidden;
+                            break;
+                    }
+                    break;
+                case 1:
+                    switch (j)
+                    {
+                        case 0:
+                            if (isVisableMap(i, j))
+                                Map1_0.Visibility = Visibility.Visible;
+                            else
+                                Map1_0.Visibility = Visibility.Hidden;
+                            break;
+                        case 1:
+                            if (isVisableMap(i, j))
+                                Map1_1.Visibility = Visibility.Visible;
+                            else
+                                Map1_1.Visibility = Visibility.Hidden;
+                            break;
+                        case 2:
+                            if (isVisableMap(i, j))
+                                Map1_2.Visibility = Visibility.Visible;
+                            else
+                                Map1_2.Visibility = Visibility.Hidden;
+                            break;
+                        case 3:
+                            if (isVisableMap(i, j))
+                                Map1_3.Visibility = Visibility.Visible;
+                            else
+                                Map1_3.Visibility = Visibility.Hidden;
+                            break;
+                        default:
+                            if (isVisableMap(i, j))
+                                Map1_4.Visibility = Visibility.Visible;
+                            else
+                                Map1_4.Visibility = Visibility.Hidden;
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (j)
+                    {
+                        case 0:
+                            if (isVisableMap(i, j))
+                                Map2_0.Visibility = Visibility.Visible;
+                            else
+                                Map2_0.Visibility = Visibility.Hidden;
+                            break;
+                        case 1:
+                            if (isVisableMap(i, j))
+                                Map2_1.Visibility = Visibility.Visible;
+                            else
+                                Map2_1.Visibility = Visibility.Hidden;
+                            break;
+                        case 2:
+                            if (isVisableMap(i, j))
+                                Map2_2.Visibility = Visibility.Visible;
+                            else
+                                Map2_2.Visibility = Visibility.Hidden;
+                            break;
+                        case 3:
+                            if (isVisableMap(i, j))
+                                Map2_3.Visibility = Visibility.Visible;
+                            else
+                                Map2_3.Visibility = Visibility.Hidden;
+                            break;
+                        default:
+                            if (isVisableMap(i, j))
+                                Map2_4.Visibility = Visibility.Visible;
+                            else
+                                Map2_4.Visibility = Visibility.Hidden;
+                            break;
+                    }
+                    break;
+                case 3:
+                    switch (j)
+                    {
+                        case 0:
+                            if (isVisableMap(i, j))
+                                Map3_0.Visibility = Visibility.Visible;
+                            else
+                                Map3_0.Visibility = Visibility.Hidden;
+                            break;
+                        case 1:
+                            if (isVisableMap(i, j))
+                                Map3_1.Visibility = Visibility.Visible;
+                            else
+                                Map3_1.Visibility = Visibility.Hidden;
+                            break;
+                        case 2:
+                            if (isVisableMap(i, j))
+                                Map3_2.Visibility = Visibility.Visible;
+                            else
+                                Map3_2.Visibility = Visibility.Hidden;
+                            break;
+                        case 3:
+                            if (isVisableMap(i, j))
+                                Map3_3.Visibility = Visibility.Visible;
+                            else
+                                Map3_3.Visibility = Visibility.Hidden;
+                            break;
+                        default:
+                            if (isVisableMap(i, j))
+                                Map3_4.Visibility = Visibility.Visible;
+                            else
+                                Map3_4.Visibility = Visibility.Hidden;
+                            break;
+                    }
+                    break;
+                default:
+                    switch (j)
+                    {
+                        case 0:
+                            if (isVisableMap(i, j))
+                                Map4_0.Visibility = Visibility.Visible;
+                            else
+                                Map4_0.Visibility = Visibility.Hidden;
+                            break;
+                        case 1:
+                            if (isVisableMap(i, j))
+                                Map4_1.Visibility = Visibility.Visible;
+                            else
+                                Map4_1.Visibility = Visibility.Hidden;
+                            break;
+                        case 2:
+                            if (isVisableMap(i, j))
+                                Map4_2.Visibility = Visibility.Visible;
+                            else
+                                Map4_2.Visibility = Visibility.Hidden;
+                            break;
+                        case 3:
+                            if (isVisableMap(i, j))
+                                Map4_3.Visibility = Visibility.Visible;
+                            else
+                                Map4_3.Visibility = Visibility.Hidden;
+                            break;
+                        default:
+                            if (isVisableMap(i, j))
+                                Map4_4.Visibility = Visibility.Visible;
+                            else
+                                Map4_4.Visibility = Visibility.Hidden;
+                            break;
+                    }
+                    break;
+            }
+=======
+>>>>>>> 70c441e23404444d35097dfa57b50351ca87d4c1
         }
 
         //example button
