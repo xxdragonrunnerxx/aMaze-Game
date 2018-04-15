@@ -1,0 +1,10 @@
+
+*.lock
+*.ide
+*.ide-shm
+*.ide-wal
+*.sqlite
+*.ide-shm
+*.ide-shm
+*.ide
+*.ide-wal

@@ -41,8 +41,8 @@ namespace MazeGame
         public Character(String _name, int life, int keyNum, location _loc)
         {
             name = _name;
-            Status = new Items(life, keyNum);
-            Loc = _loc;
+            status= new Items(life, keyNum);
+            loc = _loc;
         }
 
         // function to check if character is alive
@@ -60,7 +60,7 @@ namespace MazeGame
             }
             get
             {
-               return status.Life;
+                return status.Life;
             }
         }
 
@@ -72,31 +72,7 @@ namespace MazeGame
             }
             get
             {
-               return status.Keys;
-            }
-        }
-
-        public location Loc
-        {
-            set
-            {
-                loc = value;
-            }
-            get
-            {
-                return loc;
-            }
-        }
-
-        public Items Status
-        {
-            set
-            {
-                status = value;
-            }
-            get
-            {
-                return status;
+                return status.Keys;
             }
         }
 
@@ -108,17 +84,17 @@ namespace MazeGame
                 status.addKey(value);
             }
         }
-        
+
         // function to move location by one map unit
         // 1 = north, 2 = south, 3 = east, 4 = west
         public void move(int direction)
         {
             int i = 1;
-            if(direction%2 > 0)
+            if (direction % 2 > 0)
             {
                 i = -1;
             }
-            if(direction < 3)
+            if (direction < 3)
             {
                 loc.Y = loc.Y + i;
             }

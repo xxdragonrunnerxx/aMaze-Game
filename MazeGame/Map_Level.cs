@@ -28,7 +28,7 @@ using System.ComponentModel;
 
 namespace MazeGame
 {
-    
+
     class Map_Level
     {
         //class level variables
@@ -48,12 +48,12 @@ namespace MazeGame
         // function to load a level from a file
         private Map<coord> loadMap(int l)
         {
-            String tempString = getPath() + "/Level/level" + l + ".txt";
+            String tempString = getPath() + "/src/level" + l + ".txt";
             reader = new StreamReader(tempString); //sets a stream reader to the selected file
             tempString = reader.ReadLine();
             String[] tempArr = tempString.Split(',');
             String[] tempCord = tempArr[2].Split('/');
-            currentLocation = new location(int.Parse(tempCord[0]),int.Parse(tempCord[1]),int.Parse(tempCord[2]));
+            currentLocation = new location(Convert.ToInt32(tempCord[0]), Convert.ToInt32(tempCord[1]), Convert.ToInt32(tempCord[2]));
             int x = int.Parse(tempArr[0]) + 2;
             int y = int.Parse(tempArr[1]) + 2;
             Map<coord> lMap = new Map<coord>(x, y);
@@ -70,7 +70,8 @@ namespace MazeGame
                         lMap[i, j].Tile = -1;
                     }
                 }
-                else {
+                else
+                {
                     tempString = reader.ReadLine();
                     tempArr = tempString.Split(',');
                     for (int j = 0; j < x; j++)
@@ -109,22 +110,22 @@ namespace MazeGame
             Loc = loc;
             setVisible();
             int i = 1;
-            if(loc.Z%2 > 0)
+            if (loc.Z % 2 > 0)
             {
                 i = -1;
             }
             if (loc.Z < 3)
             {
-                view[0] = map[loc.X + i, loc.Y];
-                view[1] = map[loc.X, loc.Y + i];
-                view[2] = map[loc.X - i, loc.Y];
+                view[0] = map[Loc.X + i, Loc.Y];
+                view[1] = map[Loc.X, Loc.Y + i];
+                view[2] = map[Loc.X - i, Loc.Y];
             }
             else
             {
-                view[0] = map[loc.X, loc.Y + i];
-                view[1] = map[loc.X + i, loc.Y];
-                view[2] = map[loc.X, loc.Y - i];
-            } 
+                view[0] = map[Loc.X, Loc.Y + i];
+                view[1] = map[Loc.X + i, Loc.Y];
+                view[2] = map[Loc.X, Loc.Y - i];
+            }
         }
 
         // fuction set all square surounding currentloction to visble
@@ -163,7 +164,7 @@ namespace MazeGame
             {
                 currentLocation = value;
             }
-            
+
         }
 
         public coord rightView
@@ -177,14 +178,14 @@ namespace MazeGame
         {
             get
             {
-                return view[0];
+                return view[1];
             }
         }
         public coord leftView
         {
             get
             {
-                return view[0];
+                return view[2];
             }
         }
 
