@@ -38,8 +38,11 @@ namespace MazeGame
     {
         //What panel is set to visable now 
         int[] panelValue = { 1, 1, 1 };//Bradley
+<<<<<<< HEAD
         bool[,] mapView = new bool[5, 5];
 
+=======
+>>>>>>> 70c441e23404444d35097dfa57b50351ca87d4c1
         //global instance of game
         //game bigB = new game();
         public MainWindow()
@@ -72,6 +75,7 @@ namespace MazeGame
             MenuShadow.Visibility = Visibility.Visible;
             MenuGrid.Visibility = Visibility.Visible;
         }
+<<<<<<< HEAD
 
         private void RETURN_Click(object sender, RoutedEventArgs e)
         {
@@ -98,6 +102,34 @@ namespace MazeGame
             StoryBlock.Text = "I have entered new text.";
         }
 
+=======
+
+        private void RETURN_Click(object sender, RoutedEventArgs e)
+        {
+            MenuShadow.Visibility = Visibility.Hidden;
+            MenuGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                panelValue[i] = 2;
+            }
+            LeftPanel1.Visibility = Visibility.Hidden;
+            LeftPanel2.Visibility = Visibility.Visible;
+            CenterPanel1.Visibility = Visibility.Hidden;
+            CenterPanel2.Visibility = Visibility.Visible;
+            RightPanel1.Visibility = Visibility.Hidden;
+            RightPanel2.Visibility = Visibility.Visible;
+        }
+
+        private void Button3_Click(object sender, RoutedEventArgs e)
+        {
+            StoryBlock.Text = "I have entered new text.";
+        }
+
+>>>>>>> 70c441e23404444d35097dfa57b50351ca87d4c1
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < 3; i++)
@@ -110,6 +142,7 @@ namespace MazeGame
             CenterPanel2.Visibility = Visibility.Hidden;
             RightPanel1.Visibility = Visibility.Visible;
             RightPanel2.Visibility = Visibility.Hidden;
+<<<<<<< HEAD
         }
 
         private void Map_Click(object sender, RoutedEventArgs e)
@@ -305,6 +338,8 @@ namespace MazeGame
                     }
                     break;
             }
+=======
+>>>>>>> 70c441e23404444d35097dfa57b50351ca87d4c1
         }
 
         //example button

@@ -57,6 +57,7 @@
             <Button x:Name="Wall" Content="Wall" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,300,0,0" Click="Button4_Click"/>
             <Button x:Name="Button5" Content="Button5" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,400,0,0"/>
         </Grid>
+<<<<<<< HEAD
         <Grid x:Name="MiniMap" Grid.RowSpan="2" HorizontalAlignment="Center" Width="800" Height="800" VerticalAlignment="Center" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="160*"/>
@@ -99,5 +100,7 @@
             <Image x:Name="Map4_3" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="3"/>
             <Image x:Name="Map4_4" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="4"/>
         </Grid>
+=======
+>>>>>>> 70c441e23404444d35097dfa57b50351ca87d4c1
     </Grid>
 </Window>
