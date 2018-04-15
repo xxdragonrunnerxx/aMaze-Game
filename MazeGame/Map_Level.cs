@@ -53,7 +53,7 @@ namespace MazeGame
             tempString = reader.ReadLine();
             String[] tempArr = tempString.Split(',');
             String[] tempCord = tempArr[2].Split('/');
-            currentLocation = new location(tempCord[0],tempCord[1],tempCord[2]);
+            currentLocation = new location(int.Parse(tempCord[0]),int.Parse(tempCord[1]),int.Parse(tempCord[2]));
             int x = int.Parse(tempArr[0]) + 2;
             int y = int.Parse(tempArr[1]) + 2;
             Map<coord> lMap = new Map<coord>(x, y);
@@ -115,15 +115,15 @@ namespace MazeGame
             }
             if (loc.Z < 3)
             {
-                view[0] = map[x + i, y];
-                view[1] = map[x, y + i];
-                view[2] = map[x - i, y];
+                view[0] = map[loc.X + i, loc.Y];
+                view[1] = map[loc.X, loc.Y + i];
+                view[2] = map[loc.X - i, loc.Y];
             }
             else
             {
-                view[0] = map[x, y + i];
-                view[1] = map[x + i, y];
-                view[2] = map[x, y - i];
+                view[0] = map[loc.X, loc.Y + i];
+                view[1] = map[loc.X + i, loc.Y];
+                view[2] = map[loc.X, loc.Y - i];
             } 
         }
 
@@ -131,7 +131,7 @@ namespace MazeGame
         public void setVisible()
         {
             int x = currentLocation.X;
-            int y = currentLocaton.Y;
+            int y = currentLocation.Y;
             map[x, y].Vis = true;
             map[x + 1, y].Vis = true;
             map[x - 1, y].Vis = true;

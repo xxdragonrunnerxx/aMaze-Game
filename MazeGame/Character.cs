@@ -41,7 +41,7 @@ namespace MazeGame
         public Character(String _name, int life, int keyNum, location _loc)
         {
             name = _name;
-            status(life, keyNum);
+            Status = new Items(life, keyNum);
             Loc = _loc;
         }
 
@@ -60,7 +60,7 @@ namespace MazeGame
             }
             get
             {
-               return statue.life;
+               return status.Life;
             }
         }
 
@@ -72,7 +72,31 @@ namespace MazeGame
             }
             get
             {
-               return statue.Keys;
+               return status.Keys;
+            }
+        }
+
+        public location Loc
+        {
+            set
+            {
+                loc = value;
+            }
+            get
+            {
+                return loc;
+            }
+        }
+
+        public Items Status
+        {
+            set
+            {
+                status = value;
+            }
+            get
+            {
+                return status;
             }
         }
 
