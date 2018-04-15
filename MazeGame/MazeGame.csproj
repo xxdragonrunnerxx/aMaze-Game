@@ -98,6 +98,30 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="source\Images\tall.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="source\Images\Back Button%402x.png" />
+    <Resource Include="source\Images\Back Button.png" />
+    <Resource Include="source\Images\Hint%402x.png" />
+    <Resource Include="source\Images\Hint.png" />
+    <Resource Include="source\Images\index.png" />
+    <Resource Include="source\Images\Key%402x.png" />
+    <Resource Include="source\Images\Key.png" />
+    <Resource Include="source\Images\Map%402x.png" />
+    <Resource Include="source\Images\Map.png" />
+    <Resource Include="source\Images\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="source\Images\Background.png" />
+    <Resource Include="source\Images\BackgroundCave.png" />
+    <Resource Include="source\Images\Center.png" />
+    <Resource Include="source\Images\CenterCave.png" />
+    <Resource Include="source\Images\Left.png" />
+    <Resource Include="source\Images\LeftCave.png" />
+    <Resource Include="source\Images\Right.png" />
+    <Resource Include="source\Images\RightCave.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

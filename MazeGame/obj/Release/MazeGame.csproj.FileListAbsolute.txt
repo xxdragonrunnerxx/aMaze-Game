@@ -1,0 +1,16 @@
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\bin\Release\MazeGame.exe.config
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\bin\Release\MazeGame.exe
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\bin\Release\MazeGame.pdb
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\MazeGame.csprojResolveAssemblyReference.cache
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\GUI.g.cs
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\App.g.cs
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\MazeGame_MarkupCompile.cache
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\MazeGame_MarkupCompile.lref
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\App.baml
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\GUI.baml
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\MazeGame.g.resources
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\MazeGame.Properties.Resources.resources
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\MazeGame.csproj.GenerateResource.cache
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\MazeGame.csproj.CoreCompileInputs.cache
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\MazeGame.exe
+C:\Users\xxdra\Source\Repos\aMaze-Game\MazeGame\obj\Release\MazeGame.pdb

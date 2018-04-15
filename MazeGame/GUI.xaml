@@ -11,52 +11,93 @@
             <RowDefinition Height="570*"/>
             <RowDefinition Height="299*"/>
         </Grid.RowDefinitions>
-        <Image x:Name="LeftPanel" Source ="src\Images\index.png" HorizontalAlignment="Left" Height="870" Margin="0,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False"/>
-        <Image x:Name="CenterPanel" Source ="src\Images\index.png"  HorizontalAlignment="Left" Height="870" Margin="497,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
-        <Image x:Name="RightPanel" Source ="src\Images\index.png" HorizontalAlignment="Left" Height="870" Margin="994,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
+        <Image x:Name="LeftPanel1" Source ="source/Images/Left.png" HorizontalAlignment="Left" Height="870" Margin="0,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
+        <Image x:Name="LeftPanel2" Source ="source/Images/LeftCave.png" HorizontalAlignment="Left" Height="870" Margin="0,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
+        <Image x:Name="CenterPanel1" Source ="source/Images/Center.png"  HorizontalAlignment="Left" Height="870" Margin="497,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
+        <Image x:Name="CenterPanel2" Source ="source/Images/CenterCave.png" HorizontalAlignment="Left" Height="870" Margin="497,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
+        <Image x:Name="RightPanel1" Source ="source/Images/Right.png" HorizontalAlignment="Left" Height="870" Margin="994,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
+        <Image x:Name="RightPanel2" Source ="source/Images/RightCave.png" HorizontalAlignment="Left" Height="870" Margin="994,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
         <ToolBar x:Name="ToolBar" Height="50" VerticalAlignment="Top" Margin="1,0,0,0" HorizontalAlignment="Left" Width="1491" Opacity="0.8">
-            <Image x:Name="Key1" Source ="src\Images\key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
-            <Image x:Name="Key2" Source ="src\Images\key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
-            <Image x:Name="Key3" Source ="src\Images\key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
-            <Image x:Name="Key4" Source ="src\Images\key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
+            <Image x:Name="Key1" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
+            <Image x:Name="Key2" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
+            <Image x:Name="Key3" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
+            <Image x:Name="Key4" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
             <Image Margin="0,10,0,0" VerticalAlignment="Stretch" Width="1000"/>
             <Button x:Name="Hint1" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="25">
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source ="src\Images\hint.png"/>
+                        <Image Source ="source/Images/Hint.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
             <Button x:Name="Hint2" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="45">
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source ="src\Images\hint.png"/>
+                        <Image Source ="source/Images/Hint.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button x:Name="Map" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="45">
+            <Button x:Name="Map" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Click="Map_Click">
                 <Button.Template>
                     <ControlTemplate>
-                        <Image Source ="src\Images\map.png"/>
+                        <Image Source ="source/Images/Map.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
             <Button x:Name="MENUButton" Content="MENU" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="50" FontWeight="Bold" FontSize="14" Click="MENUButton_Click"/>
         </ToolBar>
         <Rectangle x:Name="StoryShadow" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="300" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1492" Opacity="0.4" Stretch="Fill"/>
-        <TextBlock x:Name="StoryBlock" Margin="85,40,85,40" Grid.Row="1" TextWrapping="Wrap" Text=
-                   "Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! "
+        <TextBlock x:Name="StoryBlock" Margin="85,40,85,40" Grid.Row="1" TextWrapping="Wrap" Text="Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! "
                    RenderTransformOrigin="0.5,0.483" FontSize="20" FontWeight="Bold" FontFamily="Tempus Sans ITC" FontStyle="Italic" TextDecorations="Underline"/>
         <Rectangle x:Name="MenuShadow" Fill="Black" HorizontalAlignment="Left" Height="900" Margin="0,0,0,0" VerticalAlignment="Top" Width="1500"  Grid.RowSpan="2" Stretch="Fill" Opacity="0.9" Visibility="Hidden"/>
         <Grid x:Name="MenuGrid" Height="500" Margin="502,125,502,0" VerticalAlignment="Top" Grid.RowSpan="2" Visibility="Hidden">
-            <Button x:Name="Button1" Content="Button1" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" Width="487"/>
-            <Button x:Name="Button2" Content="Button2" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,100,0,0"/>
-            <Button x:Name="Button3" Content="Button3" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,200,0,0"/>
-            <Button x:Name="Button4" Content="Button4" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,300,0,0"/>
+            <Button x:Name="RETURN" Content="RETURN" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" Width="487" Click="RETURN_Click"/>
+            <Button x:Name="Cave" Content="Cave" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,100,0,0" Click="Button2_Click"/>
+            <Button x:Name="Text" Content="Text" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,200,0,0" Click="Button3_Click"/>
+            <Button x:Name="Wall" Content="Wall" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,300,0,0" Click="Button4_Click"/>
             <Button x:Name="Button5" Content="Button5" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,400,0,0"/>
         </Grid>
-        <Grid x:Name="miniMap" HorizontalAlignment="Left" Height="300" Margin="748,125,0,0" VerticalAlignment="Top" Width="300">
-            <Grid HorizontalAlignment="Left" Height="100" Margin="53,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="-0.343,0.418"/>
+        <Grid x:Name="MiniMap" Grid.RowSpan="2" HorizontalAlignment="Center" Width="800" Height="800" VerticalAlignment="Center" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="160*"/>
+                <RowDefinition Height="160*"/>
+                <RowDefinition Height="160*"/>
+                <RowDefinition Height="160*"/>
+                <RowDefinition Height="160*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160*"/>
+                <ColumnDefinition Width="160*"/>
+                <ColumnDefinition Width="160*"/>
+                <ColumnDefinition Width="160*"/>
+                <ColumnDefinition Width="160*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle x:Name="Hidden" Fill="Black" HorizontalAlignment="Left" Height="800" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="5" Grid.RowSpan="5"/>
+            <Image x:Name="Map0_0" Source="source/Images/index.png" Margin="0,0,0,0" />
+            <Image x:Name="Map1_0" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="1" Grid.Row="0"/>
+            <Image x:Name="Map2_0" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="2" Grid.Row="0"/>
+            <Image x:Name="Map3_0" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="3" Grid.Row="0"/>
+            <Image x:Name="Map4_0" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="0"/>
+            <Image x:Name="Map0_1" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="0" Grid.Row="1"/>
+            <Image x:Name="Map0_2" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="0" Grid.Row="2"/>
+            <Image x:Name="Map0_3" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="0" Grid.Row="3"/>
+            <Image x:Name="Map0_4" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="0" Grid.Row="4"/>
+            <Image x:Name="Map1_1" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1"/>
+            <Image x:Name="Map1_2" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="1" Grid.Row="2"/>
+            <Image x:Name="Map1_3" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="1" Grid.Row="3"/>
+            <Image x:Name="Map1_4" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="1" Grid.Row="4"/>
+            <Image x:Name="Map2_1" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1"/>
+            <Image x:Name="Map2_2" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="2" Grid.Row="2"/>
+            <Image x:Name="Map2_3" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="2" Grid.Row="3"/>
+            <Image x:Name="Map2_4" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="2" Grid.Row="4"/>
+            <Image x:Name="Map3_1" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="3" Grid.Row="1"/>
+            <Image x:Name="Map3_2" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="3" Grid.Row="2"/>
+            <Image x:Name="Map3_3" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="3" Grid.Row="3"/>
+            <Image x:Name="Map3_4" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="3" Grid.Row="4"/>
+            <Image x:Name="Map4_1" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="1"/>
+            <Image x:Name="Map4_2" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="2"/>
+            <Image x:Name="Map4_3" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="3"/>
+            <Image x:Name="Map4_4" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="4"/>
         </Grid>
     </Grid>
 </Window>
