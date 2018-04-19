@@ -48,85 +48,154 @@ namespace MazeGame
         // function to load a level from a file
         private Map<coord> loadMap(int l)
         {
-            String tempString = getPath() + "/src/level" + l + ".txt";
-            reader = new StreamReader(tempString); //sets a stream reader to the selected file
-            tempString = reader.ReadLine();
-            String[] tempArr = tempString.Split(',');
-            String[] tempCord = tempArr[2].Split('/');
-            currentLocation = new location(Convert.ToInt32(tempCord[0]), Convert.ToInt32(tempCord[1]), Convert.ToInt32(tempCord[2]));
-            int x = int.Parse(tempArr[0]) + 2;
-            int y = int.Parse(tempArr[1]) + 2;
-            Map<coord> lMap = new Map<coord>(x, y);
-            for (int i = 0; i < y; i++)
+            String tempString = "level" + l + ".txt";
+            try
             {
-                if (i == 0 || i == (y - 1))
+                reader = new StreamReader(tempString); //sets a stream reader to the selected file
+                Console.WriteLine("opened:" + tempString);
+                tempString = reader.ReadLine();
+                Console.WriteLine("tempString line one:" + tempString);
+                String[] tempArr = tempString.Split(',');
+                String[] tempCord = tempArr[2].Split('/');
+                currentLocation = new location(int.Parse(tempCord[0]) - 1, int.Parse(tempCord[1]) - 1, int.Parse(tempCord[2]));
+                int x = int.Parse(tempArr[0]);
+                int y = int.Parse(tempArr[1]);
+                Map<coord> lMap = new Map<coord>(x, y);
+                string[] tArr = new string[x];
+
+                Console.WriteLine("Made lMap Height: " + lMap.Height + " Length: " + lMap.Length);
+
+
+                for (int i = 0; i < y; i++)
                 {
+                    tempString = reader.ReadLine();
+                    tArr = tempString.Split(',');
                     for (int j = 0; j < x; j++)
                     {
 
-                        lMap[i, j].Vis = true;
-                        lMap[i, j].Image = -1;
-                        lMap[i, j].Story = -1;
-                        lMap[i, j].Tile = -1;
-                    }
-                }
-                else
-                {
-                    tempString = reader.ReadLine();
-                    tempArr = tempString.Split(',');
-                    for (int j = 0; j < x; j++)
-                    {
-                        tempCord = tempArr[j].Split('/');
-                        if (j == 0 || j == x - 1)
+                        //tempCord = tArr[j - 1].Split('/');
+                        tempCord = tArr[j].Split('/');
+                        if (int.Parse(tempCord[0]) == 1)
                         {
-                            lMap[i, j].Vis = true;
-                            lMap[i, j].Image = -1;
-                            lMap[i, j].Story = -1;
-                            lMap[i, j].Tile = -1;
+                            lMap[j, i] = new coord(true, int.Parse(tempCord[1]), int.Parse(tempCord[2]), int.Parse(tempCord[3]));
                         }
                         else
                         {
-                            if (int.Parse(tempCord[0]) == 1)
-                            {
-                                lMap[i, j].Vis = true;
-                            }
-                            else
-                            {
-                                lMap[i, j].Vis = false;
-                            }
-                            lMap[i, j].Image = int.Parse(tempCord[1]);
-                            lMap[i, j].Story = int.Parse(tempCord[2]);
-                            lMap[i, j].Tile = int.Parse(tempCord[3]);
+                            lMap[j, i] = new coord(false, int.Parse(tempCord[1]), int.Parse(tempCord[2]), int.Parse(tempCord[3]));
                         }
                     }
+                    Console.WriteLine();
                 }
+                reader.Close();
+                return lMap;
             }
-            return lMap;
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR ERROR ERROR ERROR ERROR");
+                Console.WriteLine(e);
+                return null;
+            }
         }
 
         // function returns the coords in front and to the sides of a location 
-        public void setView(location loc)
+        public void setView()
         {
-            Loc = loc;
-            setVisible();
+            //setVisible();
+            map[Loc.X, Loc.Y].Vis = true;
             int i = 1;
-            if (loc.Z % 2 > 0)
+            if (Loc.Z % 2 > 0)
             {
                 i = -1;
             }
-            if (loc.Z < 3)
+            try
             {
-                view[0] = map[Loc.X + i, Loc.Y];
-                view[1] = map[Loc.X, Loc.Y + i];
-                view[2] = map[Loc.X - i, Loc.Y];
+                Console.WriteLine("Loc.Z: " + Loc.Z + " i: " + i);
+                if (Loc.Z < 3)
+                {
+                    view[0] = map[Loc.X + i, Loc.Y];
+                    view[1] = map[Loc.X, Loc.Y + i];
+                    view[2] = map[Loc.X - i, Loc.Y];
+                    map[Loc.X + i, Loc.Y].Vis = true;
+                    map[Loc.X, Loc.Y + i].Vis = true;
+                    map[Loc.X - i, Loc.Y].Vis = true; ;
+                    Console.WriteLine("Loc.X: " + Loc.X + " Loc.Y: " + Loc.Y);
+                }
+                else
+                {
+                    view[0] = map[Loc.X, Loc.Y + i];
+                    view[1] = map[Loc.X + i, Loc.Y];
+                    view[2] = map[Loc.X, Loc.Y - i];
+                    map[Loc.X, Loc.Y + i].Vis = true;
+                    map[Loc.X + i, Loc.Y].Vis = true;
+                    map[Loc.X, Loc.Y - i].Vis = true;
+
+                }
+            }
+            catch (Exception e) { Console.WriteLine(e); }
+        }
+
+        // function to move location by one map unit
+        // 1 = left, 2 = foward, 3 = right
+        public void move(int direction)
+        {
+            Console.WriteLine("before move Loc.X: " + Loc.X + " Loc.Y: " + Loc.Y);
+
+            int i = 1;
+            if (Loc.Z % 2 > 0)
+            {
+                i = -1;
+            }
+            if (Loc.Z < 3)
+            {
+                Console.Write("i: " + i);
+                Console.Write("Loc.Y: " + Loc.Y + " Loc.Y + i: " + Loc.Y + i);
+                Loc.Y = Loc.Y + i;
             }
             else
             {
-                view[0] = map[Loc.X, Loc.Y + i];
-                view[1] = map[Loc.X + i, Loc.Y];
-                view[2] = map[Loc.X, Loc.Y - i];
+                Loc.X = Loc.X + i;
+            }
+            setView();
+            Console.WriteLine("After move Loc.X: " + Loc.X + " Loc.Y: " + Loc.Y);
+        }
+
+        //function rotate currentloction z access
+        // 1 = north, 2 = south, 3 = east, 4 = west
+        //input: dir = 2 rotate left dir = 3 rotate right
+        public void rotate(int dir)
+        {
+
+            switch (Loc.Z)
+            {
+                case 1:
+                    if (dir == 2)
+                        Loc.Z = 3;
+                    else
+                        Loc.Z = 4;
+                    break;
+                case 2:
+                    if (dir == 3)
+                        Loc.Z = 4;
+                    else
+                        Loc.Z = 3;
+                    break;
+                case 3:
+                    if (dir == 2)
+                        Loc.Z = 2;
+                    else
+                        Loc.Z = 1;
+                    break;
+                case 4:
+                    if (dir == 3)
+                        Loc.Z = 2;
+                    else
+                        Loc.Z = 1;
+                    break;
+                    //setView();
+
             }
         }
+
 
         // fuction set all square surounding currentloction to visble
         public void setVisible()
@@ -138,19 +207,6 @@ namespace MazeGame
             map[x - 1, y].Vis = true;
             map[x, y + 1].Vis = true;
             map[x, y - 1].Vis = true;
-        }
-
-
-
-        //method returns the path at the .snl level
-        private string getPath()
-        {
-            string s = Directory.GetCurrentDirectory();
-            //int i = s.IndexOf(Application.ProductName);
-            //string path = Path.GetDirectoryName(Application.ExecutablePath);
-            //s = s.Substring(0, i + Application.ProductName.Length + 1);
-
-            return s;
         }
 
         // set properties for variables
@@ -174,6 +230,7 @@ namespace MazeGame
                 return view[0];
             }
         }
+
         public coord frontView
         {
             get
@@ -186,6 +243,57 @@ namespace MazeGame
             get
             {
                 return view[2];
+            }
+        }
+
+        public int[,] Tiles
+        {
+            get
+            {
+                int[,] t = new int[map.Length, map.Height];
+                for (int i = 0; i < map.Length; i++)
+                {
+                    for (int j = 0; j < map.Height; j++)
+                    {
+                        t[j, i] = map[i, j].Tile;
+                    }
+                }
+
+                return t;
+            }
+        }
+
+        public bool[,] Vis
+        {
+            get
+            {
+                bool[,] v = new bool[map.Length, map.Height];
+                for (int i = 0; i < map.Length; i++)
+                {
+                    for (int j = 0; j < map.Height; j++)
+                    {
+                        v[j, i] = map[i, j].Vis;
+                    }
+                }
+
+                return v;
+            }
+        }
+
+        public int[,] Story
+        {
+            get
+            {
+                int[,] s = new int[map.Length, map.Height];
+                for (int i = 0; i < map.Length; i++)
+                {
+                    for (int j = 0; j < map.Height; j++)
+                    {
+                        s[j, i] = map[i, j].Story;
+                    }
+                }
+
+                return s;
             }
         }
 

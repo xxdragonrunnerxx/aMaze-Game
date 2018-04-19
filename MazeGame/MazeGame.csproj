@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Game.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="location.cs" />
     <Compile Include="Map.cs" />
@@ -122,6 +123,18 @@
     <Resource Include="source\Images\LeftCave.png" />
     <Resource Include="source\Images\Right.png" />
     <Resource Include="source\Images\RightCave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="source\Images\RockMap100.png" />
+    <Resource Include="source\Images\RockMap120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="source\Images\LeftDoor.png" />
+    <Resource Include="source\Images\RightDoor.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="source\Images\CenterDoor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

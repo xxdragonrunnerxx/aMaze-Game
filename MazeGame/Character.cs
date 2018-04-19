@@ -35,14 +35,15 @@ namespace MazeGame
         // global variables
         private String name;
         private Items status;
-        private location loc;
+        //private location loc;
 
         // constructor
-        public Character(String _name, int life, int keyNum, location _loc)
+        //public Character(String _name, int life, int keyNum, location _loc)
+        public Character(String _name, int life, int keyNum)
         {
             name = _name;
-            status= new Items(life, keyNum);
-            loc = _loc;
+            status = new Items(life, keyNum);
+            //loc = _loc;
         }
 
         // function to check if character is alive
@@ -85,23 +86,5 @@ namespace MazeGame
             }
         }
 
-        // function to move location by one map unit
-        // 1 = north, 2 = south, 3 = east, 4 = west
-        public void move(int direction)
-        {
-            int i = 1;
-            if (direction % 2 > 0)
-            {
-                i = -1;
-            }
-            if (direction < 3)
-            {
-                loc.Y = loc.Y + i;
-            }
-            else
-            {
-                loc.X = loc.X + i;
-            }
-        }
     }
 }

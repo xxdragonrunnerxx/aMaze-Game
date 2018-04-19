@@ -13,10 +13,13 @@
         </Grid.RowDefinitions>
         <Image x:Name="LeftPanel1" Source ="source/Images/Left.png" HorizontalAlignment="Left" Height="870" Margin="0,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
         <Image x:Name="LeftPanel2" Source ="source/Images/LeftCave.png" HorizontalAlignment="Left" Height="870" Margin="0,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
+        <Image x:Name="LeftPanel3" Source ="source/Images/LeftDoor.png" HorizontalAlignment="Left" Height="870" Margin="0,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
         <Image x:Name="CenterPanel1" Source ="source/Images/Center.png"  HorizontalAlignment="Left" Height="870" Margin="497,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
         <Image x:Name="CenterPanel2" Source ="source/Images/CenterCave.png" HorizontalAlignment="Left" Height="870" Margin="497,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
+        <Image x:Name="CenterPanel3" Source ="source/Images/CenterDoor.png" HorizontalAlignment="Left" Height="870" Margin="497,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
         <Image x:Name="RightPanel1" Source ="source/Images/Right.png" HorizontalAlignment="Left" Height="870" Margin="994,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
         <Image x:Name="RightPanel2" Source ="source/Images/RightCave.png" HorizontalAlignment="Left" Height="870" Margin="994,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
+        <Image x:Name="RightPanel3" Source ="source/Images/RightDoor.png" HorizontalAlignment="Left" Height="870" Margin="994,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill" IsEnabled="False" Visibility="Hidden"/>
         <ToolBar x:Name="ToolBar" Height="50" VerticalAlignment="Top" Margin="1,0,0,0" HorizontalAlignment="Left" Width="1491" Opacity="0.8">
             <Image x:Name="Key1" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
             <Image x:Name="Key2" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
@@ -57,7 +60,6 @@
             <Button x:Name="Wall" Content="Wall" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,300,0,0" Click="Button4_Click"/>
             <Button x:Name="Button5" Content="Button5" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,400,0,0"/>
         </Grid>
-<<<<<<< HEAD
         <Grid x:Name="MiniMap" Grid.RowSpan="2" HorizontalAlignment="Center" Width="800" Height="800" VerticalAlignment="Center" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="160*"/>
@@ -74,33 +76,31 @@
                 <ColumnDefinition Width="160*"/>
             </Grid.ColumnDefinitions>
             <Rectangle x:Name="Hidden" Fill="Black" HorizontalAlignment="Left" Height="800" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="5" Grid.RowSpan="5"/>
-            <Image x:Name="Map0_0" Source="source/Images/index.png" Margin="0,0,0,0" />
-            <Image x:Name="Map1_0" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="1" Grid.Row="0"/>
-            <Image x:Name="Map2_0" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="2" Grid.Row="0"/>
-            <Image x:Name="Map3_0" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="3" Grid.Row="0"/>
-            <Image x:Name="Map4_0" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="0"/>
-            <Image x:Name="Map0_1" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="0" Grid.Row="1"/>
-            <Image x:Name="Map0_2" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="0" Grid.Row="2"/>
-            <Image x:Name="Map0_3" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="0" Grid.Row="3"/>
-            <Image x:Name="Map0_4" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="0" Grid.Row="4"/>
-            <Image x:Name="Map1_1" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1"/>
-            <Image x:Name="Map1_2" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="1" Grid.Row="2"/>
-            <Image x:Name="Map1_3" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="1" Grid.Row="3"/>
-            <Image x:Name="Map1_4" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="1" Grid.Row="4"/>
-            <Image x:Name="Map2_1" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1"/>
-            <Image x:Name="Map2_2" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="2" Grid.Row="2"/>
-            <Image x:Name="Map2_3" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="2" Grid.Row="3"/>
-            <Image x:Name="Map2_4" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="2" Grid.Row="4"/>
-            <Image x:Name="Map3_1" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="3" Grid.Row="1"/>
-            <Image x:Name="Map3_2" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="3" Grid.Row="2"/>
-            <Image x:Name="Map3_3" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="3" Grid.Row="3"/>
-            <Image x:Name="Map3_4" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="3" Grid.Row="4"/>
-            <Image x:Name="Map4_1" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="1"/>
-            <Image x:Name="Map4_2" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="2"/>
-            <Image x:Name="Map4_3" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="3"/>
-            <Image x:Name="Map4_4" Source="source/Images/index.png" Margin="0,0,0,0" Grid.Column="4" Grid.Row="4"/>
+            <Image x:Name="Map0_0" Margin="0,0,0,0" />
+            <Image x:Name="Map1_0" Margin="0,0,0,0" Grid.Column="1" Grid.Row="0"/>
+            <Image x:Name="Map2_0" Margin="0,0,0,0" Grid.Column="2" Grid.Row="0"/>
+            <Image x:Name="Map3_0" Margin="0,0,0,0" Grid.Column="3" Grid.Row="0"/>
+            <Image x:Name="Map4_0" Margin="0,0,0,0" Grid.Column="4" Grid.Row="0"/>
+            <Image x:Name="Map0_1" Margin="0,0,0,0" Grid.Column="0" Grid.Row="1"/>
+            <Image x:Name="Map0_2" Margin="0,0,0,0" Grid.Column="0" Grid.Row="2"/>
+            <Image x:Name="Map0_3" Margin="0,0,0,0" Grid.Column="0" Grid.Row="3"/>
+            <Image x:Name="Map0_4" Margin="0,0,0,0" Grid.Column="0" Grid.Row="4"/>
+            <Image x:Name="Map1_1" Margin="0,0,0,0" Grid.Column="1" Grid.Row="1"/>
+            <Image x:Name="Map1_2" Margin="0,0,0,0" Grid.Column="1" Grid.Row="2"/>
+            <Image x:Name="Map1_3" Margin="0,0,0,0" Grid.Column="1" Grid.Row="3"/>
+            <Image x:Name="Map1_4" Margin="0,0,0,0" Grid.Column="1" Grid.Row="4"/>
+            <Image x:Name="Map2_1" Margin="0,0,0,0" Grid.Column="2" Grid.Row="1"/>
+            <Image x:Name="Map2_2" Margin="0,0,0,0" Grid.Column="2" Grid.Row="2"/>
+            <Image x:Name="Map2_3" Margin="0,0,0,0" Grid.Column="2" Grid.Row="3"/>
+            <Image x:Name="Map2_4" Margin="0,0,0,0" Grid.Column="2" Grid.Row="4"/>
+            <Image x:Name="Map3_1" Margin="0,0,0,0" Grid.Column="3" Grid.Row="1"/>
+            <Image x:Name="Map3_2" Margin="0,0,0,0" Grid.Column="3" Grid.Row="2"/>
+            <Image x:Name="Map3_3" Margin="0,0,0,0" Grid.Column="3" Grid.Row="3"/>
+            <Image x:Name="Map3_4" Margin="0,0,0,0" Grid.Column="3" Grid.Row="4"/>
+            <Image x:Name="Map4_1" Margin="0,0,0,0" Grid.Column="4" Grid.Row="1"/>
+            <Image x:Name="Map4_2" Margin="0,0,0,0" Grid.Column="4" Grid.Row="2"/>
+            <Image x:Name="Map4_3" Margin="0,0,0,0" Grid.Column="4" Grid.Row="3"/>
+            <Image x:Name="Map4_4" Margin="0,0,0,0" Grid.Column="4" Grid.Row="4"/>
         </Grid>
-=======
->>>>>>> 70c441e23404444d35097dfa57b50351ca87d4c1
     </Grid>
 </Window>
