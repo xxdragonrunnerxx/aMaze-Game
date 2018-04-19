@@ -58,8 +58,6 @@ namespace MazeGame
 
             setPanel();
             getStory();
-            mini.Visibility = Visibility.Hidden;
-            main.Visibility = Visibility.Visible;
         }
 
         private void setImage(Image pnlimg, string path)
@@ -72,19 +70,21 @@ namespace MazeGame
 
         private void setPanel()
         {
-            string[] img = { "images/block.png", "images/open.png", "images/prize.png" };
-            setImage(leftP, img[G.LeftImage]);
-            setImage(MiddleP, img[G.FrontImage]);
-            setImage(rightP, img[G.RightImage]);
+            string[] img = { "source/Images/Left.png", "source/Images/LeftDoor.png", "source/Images/LeftCave.png",
+                "source/Images/Center.png", "source/Images/CenterDoor.png", "source/Images/CenterCave.png",
+                "source/Images/Right.png", "source/Images/RightDoor.png", "source/Images/RightCave.png"};
+            setImage(LeftPanel, img[game.LeftImage]);
+            setImage(CenterPanel, img[game.FrontImage + 3]);
+            setImage(RightPanel, img[game.RightImage + 6]);
         }
 
         private void getStory()
         {
-            storyBox.Text = G.Story;
-            Console.WriteLine(G.Story);
-            button1.Content = G.Button1;
-            button1.Content = G.Button2;
-            button1.Content = G.Button3;
+            StoryBlock.Text = game.Story;
+            Console.WriteLine(game.Story);
+            Button1.Content = "Left";
+            Button2.Content = game.Button2;
+            Button3.Content = game.Button3;
         }
 
 
@@ -105,26 +105,26 @@ namespace MazeGame
                     if (game.currentLoc.X == j && game.currentLoc.Y == i)
                     {
                         Console.WriteLine("game.currentLoc.X: " + game.currentLoc.X + " game.currentLoc.Y: " + game.currentLoc.Y + " i: " + i + " j: " + j);
-                        setImage(mMap[i, j], "images/person.png");
+                        setImage(mMap[i, j], "source/Images/index.png");
                         mMap[i, j].Visibility = Visibility.Visible;
                     }
-                    else if (!game.vis[i, j])
-                    {
-                        mMap[i, j].Visibility = Visibility.Hidden;
-                    }
+                    //else if (!game.vis[i, j])
+                    //{
+                    //    mMap[i, j].Visibility = Visibility.Hidden;
+                    //}
                     else if (game.tiles[i, j] == 1)
                     {
-                        setImage(mMap[i, j], "images/open.png");
+                        setImage(mMap[i, j], "source/Images/RockMap120.png");
                         mMap[i, j].Visibility = Visibility.Visible;
                     }
                     else if (game.tiles[i, j] == 2)
                     {
-                        setImage(mMap[i, j], "images/chest.png");
+                        setImage(mMap[i, j], "source/Images/Key@2x.png");
                         mMap[i, j].Visibility = Visibility.Visible;
                     }
                     else
                     {
-                        setImage(mMap[i, j], "images/wall.png");
+                        setImage(mMap[i, j], "source/Images/Hint@2x.png");
                         mMap[i, j].Visibility = Visibility.Visible;
                     }
                 }
@@ -145,7 +145,8 @@ namespace MazeGame
 
         private bool isVisableMap(int x, int y)
         {
-            return mapView[x, y];
+            return true;
+            //return mapView[x, y];
         }
 
         private void MENUButton_Click(object sender, RoutedEventArgs e)
@@ -166,11 +167,11 @@ namespace MazeGame
             {
                 panelValue[i] = 2;
             }
-            LeftPanel1.Visibility = Visibility.Hidden;
+            LeftPanel.Visibility = Visibility.Hidden;
             LeftPanel2.Visibility = Visibility.Visible;
-            CenterPanel1.Visibility = Visibility.Hidden;
+            CenterPanel.Visibility = Visibility.Hidden;
             CenterPanel2.Visibility = Visibility.Visible;
-            RightPanel1.Visibility = Visibility.Hidden;
+            RightPanel.Visibility = Visibility.Hidden;
             RightPanel2.Visibility = Visibility.Visible;
         }
 
@@ -185,11 +186,11 @@ namespace MazeGame
             {
                 panelValue[i] = 1;
             }
-            LeftPanel1.Visibility = Visibility.Visible;
+            LeftPanel.Visibility = Visibility.Visible;
             LeftPanel2.Visibility = Visibility.Hidden;
-            CenterPanel1.Visibility = Visibility.Visible;
+            CenterPanel.Visibility = Visibility.Visible;
             CenterPanel2.Visibility = Visibility.Hidden;
-            RightPanel1.Visibility = Visibility.Visible;
+            RightPanel.Visibility = Visibility.Visible;
             RightPanel2.Visibility = Visibility.Hidden;
         }
 
@@ -199,10 +200,12 @@ namespace MazeGame
             {
                 for (int j = 0; j < mapView.GetLength(1); j++)
                 {
+                    setMini();
                     setMapVisability(i, j);
                 }
 
             }
+            MenuShadow.Visibility = Visibility.Visible;
             MiniMap.Visibility = Visibility.Visible;
         }
 
@@ -386,6 +389,32 @@ namespace MazeGame
                     }
                     break;
             }
+        }
+
+        private void ReturnMini_Click(object sender, RoutedEventArgs e)
+        {
+            MenuShadow.Visibility = Visibility.Hidden;
+            MiniMap.Visibility = Visibility.Hidden;
+        }
+
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            game.action(1);
+            setPanel();
+            getStory();
+        }
+        private void Button2_Click_1(object sender, RoutedEventArgs e)
+        {
+            game.action(2);
+            setPanel();
+            getStory();
+        }
+
+        private void Button3_Click_1(object sender, RoutedEventArgs e)
+        {
+            game.action(3);
+            setPanel();
+            getStory();
         }
 
         //example button

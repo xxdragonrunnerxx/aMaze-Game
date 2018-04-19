@@ -115,9 +115,9 @@ namespace MazeGame
                     view[0] = map[Loc.X + i, Loc.Y];
                     view[1] = map[Loc.X, Loc.Y + i];
                     view[2] = map[Loc.X - i, Loc.Y];
-                    map[Loc.X + i, Loc.Y].Vis = true;
-                    map[Loc.X, Loc.Y + i].Vis = true;
-                    map[Loc.X - i, Loc.Y].Vis = true; ;
+                    //map[Loc.X + i, Loc.Y].Vis = true;
+                    //map[Loc.X, Loc.Y + i].Vis = true;
+                    //map[Loc.X - i, Loc.Y].Vis = true; ;
                     Console.WriteLine("Loc.X: " + Loc.X + " Loc.Y: " + Loc.Y);
                 }
                 else
@@ -125,9 +125,9 @@ namespace MazeGame
                     view[0] = map[Loc.X, Loc.Y + i];
                     view[1] = map[Loc.X + i, Loc.Y];
                     view[2] = map[Loc.X, Loc.Y - i];
-                    map[Loc.X, Loc.Y + i].Vis = true;
-                    map[Loc.X + i, Loc.Y].Vis = true;
-                    map[Loc.X, Loc.Y - i].Vis = true;
+                    //map[Loc.X, Loc.Y + i].Vis = true;
+                    //map[Loc.X + i, Loc.Y].Vis = true;
+                    //map[Loc.X, Loc.Y - i].Vis = true;
 
                 }
             }
