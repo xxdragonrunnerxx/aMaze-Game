@@ -132,9 +132,19 @@
     <Resource Include="source\Images\LeftDoor.png" />
     <Resource Include="source\Images\RightDoor.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="source\Images\Died.png" />
+    <Resource Include="source\Images\ground.png" />
+    <Resource Include="source\Images\you escaped.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="source\Images\CenterDoor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="source\Images\person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="source\Images\chest2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

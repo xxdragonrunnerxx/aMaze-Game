@@ -41,7 +41,7 @@ namespace MazeGame
         public Map_Level(int level)
         {
             map = loadMap(level);
-            setVisible();
+            //setVisible();
             view = new coord[3];
         }
 
@@ -198,16 +198,16 @@ namespace MazeGame
 
 
         // fuction set all square surounding currentloction to visble
-        public void setVisible()
-        {
-            int x = currentLocation.X;
-            int y = currentLocation.Y;
-            map[x, y].Vis = true;
-            map[x + 1, y].Vis = true;
-            map[x - 1, y].Vis = true;
-            map[x, y + 1].Vis = true;
-            map[x, y - 1].Vis = true;
-        }
+        //public void setVisible()
+        //{
+        //    int x = currentLocation.X;
+        //    int y = currentLocation.Y;
+        //    map[x, y].Vis = true;
+        //    map[x + 1, y].Vis = true;
+        //    map[x - 1, y].Vis = true;
+        //    map[x, y + 1].Vis = true;
+        //    map[x, y - 1].Vis = true;
+        //}
 
         // set properties for variables
         public location Loc
