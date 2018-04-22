@@ -46,73 +46,95 @@ namespace MazeGame
     class Game
     {
         // global variables
-        StreamReader reader;
         Character player;
         Map_Level level;
         int flag;
         public int[,] tiles, story;
         public bool[,] vis;
         bool win;
+        int resetLevel;
         int option1, option2, option3;
         string responce = "";
         string tale = "";
         string op1 = "";
         string op2 = "";
-        string op3 = ""; 
+        string op3 = "";
 
 
         //constructor
         public Game(int lev)
         {
+            resetLevel = lev;
             level = new Map_Level(lev);
-            player = new Character("Bob", 10, 0);
+            player = new Character("Bob", 10, 1);
             tiles = level.Tiles;
             story = level.Story;
-            vis = level.Vis;
             flag = 0;
             win = false;
+        }
+
+        // Method to reset th game
+        public void reset()
+        {
+            level = new Map_Level(resetLevel);
+            player = new Character("Bob", 10, 1);
+            tiles = level.Tiles;
+            story = level.Story;
+            flag = 0;
+            win = false;
+
         }
 
         // Method for updating after action is taken
         public void action(int button)
         {
+            setStory();
             int option = 0;
             string dir = "";
+            Console.WriteLine("enter action");
+            Console.WriteLine("Button: " + button);
+            Console.WriteLine("Option1: " + option1);
+            Console.WriteLine("Option2: " + option2);
+            Console.WriteLine("Option3: " + option3);
             switch (button)
             {
-             case 2:
-                dir = "left";
-                level.rotate(button);
-                break;
-            case 3:
-                dir = "right";
-                level.rotate(button);
-                break;
-            default:
-                option = option1;
-                dir = "foward";
-                switch (option)
-                {
-                    case 0:
-                            Console.WriteLine("default case 0");
-                        responce = "You move " + dir + " and run into a wall. That hurt. ";
-                        player.Life -= 1;
-                        break;
-                    case 1:
-                        Console.WriteLine("default case 2");
-                        responce = "You move " + dir + ". ";
-                        level.move(button);
-                        break;
-                    case 2:
-                        Console.WriteLine("default case 2");
-                        responce = "You move " + dir + " and find a key in a chest. ";
-                        level.move(button);
-                        player.newKey = 1;
-                        break;
-                }
-                break;
+                case 2:
+                    Console.WriteLine("Case button 2: rotate left");
+                    dir = "left";
+                    level.rotate(button);
+                    break;
+                case 3:
+                    Console.WriteLine("Case button 3: rotate right");
+                    dir = "right";
+                    level.rotate(button);
+                    break;
+                default:
+                    option = option1;
+                    Console.WriteLine("default: foward");
+                    dir = "foward";
+                    switch (option)
+                    {
+                        case 0:
+                            Console.WriteLine("default case 0: wall");
+                            responce = "You move " + dir + " and run into a wall. That hurt. ";
+                            player.Life -= 1;
+                            break;
+                        case 1:
+                            Console.WriteLine("default case 1: move");
+                            responce = "You move " + dir + ". ";
+                            level.move(button);
+                            break;
+                        case 2:
+                            Console.WriteLine("default case 2: chest move");
+                            responce = "You move " + dir + " and find a key in a chest. ";
+                            level.move(button);
+                            player.newKey = 1;
+                            break;
+
+                    }
+                    break;
             }
-            vis = level.Vis;
+            //vis = level.Vis;
         }
 
         // method waits while flag is not changed
@@ -127,10 +149,12 @@ namespace MazeGame
         // set the current story line with the current view
         public void setStory()
         {
+            StreamReader reader, reader1, reader2;
+            Console.WriteLine("enter set story");
             level.setView();
-            int tempStor = level.frontView.Story;
+            int tempStor = level.FrontView.Story;
             String tempString = "story" + tempStor + ".txt";
-            string[] tempArr;
+            string[] tempArr, tempArr1, tempArr2;
             string tempStr = "";
             try
             {
@@ -144,48 +168,10 @@ namespace MazeGame
                 }
                 tempArr = tempStr.Split(';');
                 tale = responce + tempArr[0];
+                op1 = "Move foward toward " + tempArr[1];
+                option1 = int.Parse(tempArr[2]);
                 reader.Close();
-            }
-            catch (Exception e) {
-            }
-        }
-
-        // returns string for for button option and a number assigned for for the string
-        public void setOption(int opt)
-        {
-            level.setView();
-            int tempStor = 0;
-            string tempString = "";
-            string[] tempArr;
-            if(opt == 1 || level.frontView.Story > 9)
-            {
-                // read file for the left view and set options
-                tempStor = level.frontView.Story;
-            }
-            else if(opt == 2)
-            {
-                // read file for the left view and set options
-                tempStor = level.leftView.Story;
-            }
-            else if (opt == 3)
-            {
-                // read file for the left view and set options
-                tempStor = level.rightView.Story;
-            }
-
-            tempString = "story" + tempStor + ".txt";
-
-            try
-            {
-                reader = new StreamReader(tempString); //sets a stream reader to the selected file
-                tempString = reader.ReadLine();
-                while (!reader.EndOfStream)
-                {
-                    tempString += reader.ReadLine();
-
-                }
-                tempArr = tempString.Split(';');
-                reader.Close();
+                Console.WriteLine("Tale: " + tale);
                 if (tempStor > 9)
                 {
                     op1 = tempArr[1];
@@ -195,25 +181,124 @@ namespace MazeGame
                     op3 = tempArr[5];
                     option3 = int.Parse(tempArr[6]);
                 }
-                else if (tempStor == 1)
+                else
                 {
-                    op1 = "Move foward toward " + tempArr[1];
-                    option1 = int.Parse(tempArr[2]);
+                    Console.WriteLine("enter setStory/op2");
+                    tempStor = level.LeftView.Story;
+                    Console.WriteLine("level.LeftView.Story: " + tempStor);
+                    tempString = "story" + tempStor + ".txt";
+                    Console.WriteLine("tempString: " + tempString);
+                    reader1 = new StreamReader(tempString);
+                    tempStr = reader1.ReadLine();
+                    while (!reader1.EndOfStream)
+                    {
+                        tempStr += reader1.ReadLine();
+
+                    }
+                    Console.WriteLine("tempStr: " + tempStr);
+                    tempArr1 = tempStr.Split(';');
+                    Console.WriteLine("tempArr1[1]: " + tempArr1[1]);
+                    op2 = "To left " + tempArr1[1];
+                    option2 = int.Parse(tempArr1[2]);
+                    reader1.Close();
+
+                    tempStor = level.RightView.Story;
+                    tempString = "story" + tempStor + ".txt";
+                    reader2 = new StreamReader(tempString);
+                    tempStr = reader2.ReadLine();
+                    while (!reader2.EndOfStream)
+                    {
+                        tempStr += reader2.ReadLine();
+
+                    }
+                    tempArr2 = tempStr.Split(';');
+                    op3 = "To right " + tempArr2[1];
+                    option3 = int.Parse(tempArr2[2]);
+                    reader2.Close();
+
                 }
-                else if (tempStor == 2)
-                {
-                    op2 = "Move left toward " + tempArr[1];
-                    option2 = int.Parse(tempArr[2]);
-                }
-                else if (tempStor == 3)
-                {
-                    op3 = "Move right toward " + tempArr[1];
-                    option3 = int.Parse(tempArr[2]);
-                }
-            }catch (Exception) { }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error setStory" + e);
+            }
         }
 
+        //// string for for button option and a number assigned for for the string
+        //public void setOption(int opt)
+        //{
+        //    Console.WriteLine("Enter setOption");
+        //    level.setView();
+        //    int tempStor = 0;
+        //    string tempString = "";
+        //    string[] tempArr;
+        //    if(opt == 1 || level.FrontView.Story > 9)
+        //    {
+        //        // read file for the left view and set options
+        //        tempStor = level.FrontView.Story;
+        //    }
+        //    else if(opt == 2)
+        //    {
+        //        // read file for the left view and set options
+        //        tempStor = level.LeftView.Story;
+        //    }
+        //    else if (opt == 3)
+        //    {
+        //        // read file for the left view and set options
+        //        tempStor = level.RightView.Story;
+        //    }
+
+        //    Console.WriteLine("level story: " + tempStor);
+
+        //    tempString = "story" + tempStor + ".txt";
+
+        //    try
+        //    {
+        //        reader = new StreamReader(tempString); //sets a stream reader to the selected file
+        //        tempString = reader.ReadLine();
+        //        while (!reader.EndOfStream)
+        //        {
+        //            tempString += reader.ReadLine();
+
+        //        }
+        //        tempArr = tempString.Split(';');
+        //        reader.Close();
+        //        if (tempStor > 9)
+        //        {
+        //            op1 = tempArr[1];
+        //            option1 = int.Parse(tempArr[2]);
+        //            op2 = tempArr[3];
+        //            option2 = int.Parse(tempArr[4]);
+        //            op3 = tempArr[5];
+        //            option3 = int.Parse(tempArr[6]);
+        //        }
+        //        else if (tempStor == 1)
+        //        {
+        //            op1 = "Move foward toward " + tempArr[1];
+        //            option1 = int.Parse(tempArr[2]);
+        //        }
+        //        else if (tempStor == 2)
+        //        {
+        //            op2 = "To the left: " + tempArr[1];
+        //            option2 = int.Parse(tempArr[2]);
+        //        }
+        //        else if (tempStor == 3)
+        //        {
+        //            op3 = "To the right: " + tempArr[1];
+        //            option3 = int.Parse(tempArr[2]);
+        //        }
+        //    }catch (Exception) { }
+        //}
+
         // Properties
+        public bool[,] Vis
+        {
+            get
+            {
+                return level.Vis;
+            }
+        }
+
         public string Story
         {
             get
@@ -227,7 +312,8 @@ namespace MazeGame
         {
             get
             {
-                setOption(1);
+                //setOption(1);
+                Console.WriteLine("Button1 op1: " + op1 + " option1: " + option1);
                 return op1;
             }
         }
@@ -236,7 +322,8 @@ namespace MazeGame
         {
             get
             {
-                setOption(2);
+                //setOption(2);
+                Console.WriteLine("Button2 op2: " + op2 + " option2: " + option2);
                 return op2;
             }
         }
@@ -245,7 +332,8 @@ namespace MazeGame
         {
             get
             {
-                setOption(3);
+                //setOption(3);
+                Console.WriteLine("Button3 op3: " + op3 + " option3: " + option3);
                 return op3;
             }
         }
@@ -263,7 +351,7 @@ namespace MazeGame
             get
             {
                 level.setView();
-                return level.frontView.Image;
+                return level.FrontView.Image;
             }
         }
 
@@ -272,7 +360,7 @@ namespace MazeGame
             get
             {
                 level.setView();
-                return level.leftView.Image;
+                return level.LeftView.Image;
             }
         }
 
@@ -281,7 +369,7 @@ namespace MazeGame
             get
             {
                 level.setView();
-                return level.rightView.Image;
+                return level.RightView.Image;
             }
         }
 

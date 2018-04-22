@@ -60,6 +60,34 @@ namespace MazeGame
             getStory();
         }
 
+        private void reStart()
+        {
+            game.reset();
+            setPanel();
+            getStory();
+        }
+
+        private void setEnd()
+        {
+            string[] img = { "source/Images/Died.png", "source/Images/you escaped.png"};
+
+            if (Won())
+                setImage(GameOver, img[1]);
+            else
+                setImage(GameOver, img[0]);
+            GameOver.Visibility = Visibility.Visible;
+            BlackOut.Visibility = Visibility.Visible;
+        }
+
+        private bool Won()
+        {
+            bool win = false;
+            if (game.Alive)
+                if (game.Flag == 0)
+                    win = true;
+            return win;
+        }
+
         private void setImage(Image pnlimg, string path)
         {
             Image img = new Image();
@@ -73,6 +101,7 @@ namespace MazeGame
             string[] img = { "source/Images/Left.png", "source/Images/LeftDoor.png", "source/Images/LeftCave.png",
                 "source/Images/Center.png", "source/Images/CenterDoor.png", "source/Images/CenterCave.png",
                 "source/Images/Right.png", "source/Images/RightDoor.png", "source/Images/RightCave.png"};
+
             setImage(LeftPanel, img[game.LeftImage]);
             setImage(CenterPanel, img[game.FrontImage + 3]);
             setImage(RightPanel, img[game.RightImage + 6]);
@@ -82,8 +111,8 @@ namespace MazeGame
         {
             StoryBlock.Text = game.Story;
             Console.WriteLine(game.Story);
-            Button1.Content = "Left";
-            Button2.Content = game.Button2;
+            Button1.Content = game.Button2;
+            Button2.Content = game.Button1;
             Button3.Content = game.Button3;
         }
 
@@ -96,22 +125,23 @@ namespace MazeGame
              { Map2_0, Map2_1, Map2_2, Map2_3, Map2_4 },
              { Map3_0, Map3_1, Map3_2, Map3_3, Map3_4 },
              { Map4_0, Map4_1, Map4_2, Map4_3, Map4_4 } };
+            bool[,] tVis = game.Vis;
 
             for (int i = 0; i < 5; i++)
             {
                 for (int j = 0; j < 5; j++)
                 {
 
-                    if (game.currentLoc.X == j && game.currentLoc.Y == i)
+                    if (game.currentLoc.X == i && game.currentLoc.Y == j)
                     {
                         Console.WriteLine("game.currentLoc.X: " + game.currentLoc.X + " game.currentLoc.Y: " + game.currentLoc.Y + " i: " + i + " j: " + j);
                         setImage(mMap[i, j], "source/Images/index.png");
                         mMap[i, j].Visibility = Visibility.Visible;
                     }
-                    //else if (!game.vis[i, j])
-                    //{
-                    //    mMap[i, j].Visibility = Visibility.Hidden;
-                    //}
+                    else if (tVis[i, j] == false)
+                    {
+                        mMap[i, j].Visibility = Visibility.Hidden;
+                    }
                     else if (game.tiles[i, j] == 1)
                     {
                         setImage(mMap[i, j], "source/Images/RockMap120.png");
@@ -146,7 +176,6 @@ namespace MazeGame
         private bool isVisableMap(int x, int y)
         {
             return true;
-            //return mapView[x, y];
         }
 
         private void MENUButton_Click(object sender, RoutedEventArgs e)
@@ -163,35 +192,19 @@ namespace MazeGame
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                panelValue[i] = 2;
-            }
-            LeftPanel.Visibility = Visibility.Hidden;
-            LeftPanel2.Visibility = Visibility.Visible;
-            CenterPanel.Visibility = Visibility.Hidden;
-            CenterPanel2.Visibility = Visibility.Visible;
-            RightPanel.Visibility = Visibility.Hidden;
-            RightPanel2.Visibility = Visibility.Visible;
+            MenuShadow.Visibility = Visibility.Hidden;
+            MenuGrid.Visibility = Visibility.Hidden;
+            setEnd();
         }
 
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
             StoryBlock.Text = "I have entered new text.";
         }
-       
+
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                panelValue[i] = 1;
-            }
-            LeftPanel.Visibility = Visibility.Visible;
-            LeftPanel2.Visibility = Visibility.Hidden;
-            CenterPanel.Visibility = Visibility.Visible;
-            CenterPanel2.Visibility = Visibility.Hidden;
-            RightPanel.Visibility = Visibility.Visible;
-            RightPanel2.Visibility = Visibility.Hidden;
+            
         }
 
         private void Map_Click(object sender, RoutedEventArgs e)
@@ -405,16 +418,21 @@ namespace MazeGame
         }
         private void Button2_Click_1(object sender, RoutedEventArgs e)
         {
-            game.action(2);
+            game.action(3);
             setPanel();
             getStory();
         }
 
         private void Button3_Click_1(object sender, RoutedEventArgs e)
         {
-            game.action(3);
+            game.action(2);
             setPanel();
             getStory();
+        }
+
+        private void Button5_Click(object sender, RoutedEventArgs e)
+        {
+            reStart();
         }
 
         //example button

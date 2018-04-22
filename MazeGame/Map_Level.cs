@@ -34,7 +34,7 @@ namespace MazeGame
         //class level variables
         private StreamReader reader;
         private Map<coord> map;
-        private coord[] view;
+        private coord leftView, rightView, frontView;
         private location currentLocation;
 
         // constructor
@@ -42,7 +42,10 @@ namespace MazeGame
         {
             map = loadMap(level);
             //setVisible();
-            view = new coord[3];
+            leftView = new coord();
+            rightView = new coord();
+            frontView = new coord();
+            setView();
         }
 
         // function to load a level from a file
@@ -77,11 +80,11 @@ namespace MazeGame
                         tempCord = tArr[j].Split('/');
                         if (int.Parse(tempCord[0]) == 1)
                         {
-                            lMap[j, i] = new coord(true, int.Parse(tempCord[1]), int.Parse(tempCord[2]), int.Parse(tempCord[3]));
+                            lMap[i, j] = new coord(true, int.Parse(tempCord[1]), int.Parse(tempCord[2]), int.Parse(tempCord[3]));
                         }
                         else
                         {
-                            lMap[j, i] = new coord(false, int.Parse(tempCord[1]), int.Parse(tempCord[2]), int.Parse(tempCord[3]));
+                            lMap[i, j] = new coord(false, int.Parse(tempCord[1]), int.Parse(tempCord[2]), int.Parse(tempCord[3]));
                         }
                     }
                     Console.WriteLine();
@@ -100,8 +103,30 @@ namespace MazeGame
         // function returns the coords in front and to the sides of a location 
         public void setView()
         {
+            Console.WriteLine();
+            for (int l = 0; l < 5; l++)
+            {
+                for (int k = 0; k < 5; k++)
+                {
+                    Console.Write(map[l, k].Vis + " ");
+                }
+
+                Console.WriteLine();
+            }
+            Console.WriteLine();
             //setVisible();
             map[Loc.X, Loc.Y].Vis = true;
+            bool[,] tVis = Vis;
+            int[,] tTile = Tiles;
+            int[,] tStory = Story;
+            int[,] tImage = Image;
+            Console.WriteLine("enter set view.");
+            Console.WriteLine("Loc.X: " + Loc.X + " Loc.Y: " + Loc.Y);
+            Console.WriteLine("Image[Loc.X - 1, Loc.Y]: " + Image[Loc.X - 1, Loc.Y] + " Image[Loc.X, Loc.Y + 1]: " + Image[Loc.X, Loc.Y + 1] + " Image[Loc.X + 1, Loc.Y]: " + Image[Loc.X + 1, Loc.Y]);
+            Console.WriteLine("Image[Loc.X - 1, Loc.Y]: " + Image[Loc.X - 1, Loc.Y] + " Image[Loc.X, Loc.Y - 1]: " + Image[Loc.X, Loc.Y - 1] + " Image[Loc.X + 1, Loc.Y]: " + Image[Loc.X + 1, Loc.Y]);
+
+            Console.WriteLine("Image[Loc.X, Loc.Y - 1]: " + Image[Loc.X, Loc.Y - 1] + " Image[Loc.X + 1, Loc.Y]: " + Image[Loc.X + 1, Loc.Y] + " Image[Loc.X + 1, Loc.Y]: " + Image[Loc.X + 1, Loc.Y]);
+            Console.WriteLine("Image[Loc.X, Loc.Y - 1]: " + Image[Loc.X, Loc.Y - 1] + " Image[Loc.X - 1, Loc.Y]: " + Image[Loc.X - 1, Loc.Y] + " Image[Loc.X + 1, Loc.Y]: " + Image[Loc.X + 1, Loc.Y]);
             int i = 1;
             if (Loc.Z % 2 > 0)
             {
@@ -109,35 +134,84 @@ namespace MazeGame
             }
             try
             {
+
+                Console.WriteLine("Loc.X: " + Loc.X + " Loc.Y: " + Loc.Y);
                 Console.WriteLine("Loc.Z: " + Loc.Z + " i: " + i);
-                if (Loc.Z < 3)
+                if (Loc.Z > 2)
                 {
-                    view[0] = map[Loc.X + i, Loc.Y];
-                    view[1] = map[Loc.X, Loc.Y + i];
-                    view[2] = map[Loc.X - i, Loc.Y];
-                    //map[Loc.X + i, Loc.Y].Vis = true;
-                    //map[Loc.X, Loc.Y + i].Vis = true;
-                    //map[Loc.X - i, Loc.Y].Vis = true; ;
-                    Console.WriteLine("Loc.X: " + Loc.X + " Loc.Y: " + Loc.Y);
+
+
+                    map[Loc.X + i, Loc.Y].Vis = true;
+                    map[Loc.X, Loc.Y + i].Vis = true;
+                    map[Loc.X - i, Loc.Y].Vis = true;
+                    RightView = new coord(tVis[Loc.X, Loc.Y + i], tImage[Loc.X, Loc.Y + i], tStory[Loc.X, Loc.Y + i], tTile[Loc.X, Loc.Y + i]);
+                    FrontView = new coord(tVis[Loc.X + 1, Loc.Y], tImage[Loc.X + 1, Loc.Y], tStory[Loc.X + 1, Loc.Y], tTile[Loc.X + 1, Loc.Y]);
+                    LeftView = new coord(tVis[Loc.X, Loc.Y - i], tImage[Loc.X, Loc.Y - i], tStory[Loc.X, Loc.Y - i], tTile[Loc.X, Loc.Y - i]);
+
+
+
+                    Console.WriteLine("right view: x: " + (Loc.X + i) + " y: " + (Loc.Y));
+                    Console.WriteLine("Front view: x: " + (Loc.X) + " y: " + (Loc.Y + i));
+                    Console.WriteLine("left view: x: " + (Loc.X - i) + " y: " + (Loc.Y));
+                    Console.WriteLine("left view map[Loc.X - i, Loc.Y].Image: " + map[Loc.X - i, Loc.Y].Image);
+                    Console.WriteLine("LeftView.image: " + LeftView.Image);
+
+
+
+                    //Console.WriteLine("right view map[Loc.X + i, Loc.Y].Image: " + map[Loc.X + i, Loc.Y].Image);
+                    //Console.WriteLine("RightView.image: " + RightView.Image);
+                    //Console.WriteLine("LeftView.image: " + LeftView.Image);
+                    //RightView.Image = map[Loc.X + 1, Loc.Y].Image;
+                    //Console.WriteLine("RightView.image: " + RightView.Image);
+                    //Console.WriteLine("LeftView.image: " + LeftView.Image);
+                    //FrontView.Image = map[Loc.X, Loc.Y + i].Image;
+                    //LeftView.Image = map[Loc.X - i, Loc.Y].Image;
+                    //Console.WriteLine("RightView.image: " + RightView.Image);
+                    //Console.WriteLine("LeftView.image: " + LeftView.Image);
+                    //LeftView.Story = map[Loc.X - i, Loc.Y].Story;
+                    //RightView.Story = map[Loc.X + 1, Loc.Y].Story;
+                    //FrontView.Story = map[Loc.X, Loc.Y + i].Story;
+                    //Console.WriteLine("RightView.image: " + RightView.Image);
+                    //Console.WriteLine("LeftView.image: " + LeftView.Image);
                 }
                 else
                 {
-                    view[0] = map[Loc.X, Loc.Y + i];
-                    view[1] = map[Loc.X + i, Loc.Y];
-                    view[2] = map[Loc.X, Loc.Y - i];
-                    //map[Loc.X, Loc.Y + i].Vis = true;
-                    //map[Loc.X + i, Loc.Y].Vis = true;
-                    //map[Loc.X, Loc.Y - i].Vis = true;
+                    RightView = new coord(tVis[Loc.X - i, Loc.Y], tImage[Loc.X - i, Loc.Y], tStory[Loc.X - i, Loc.Y], tTile[Loc.X - i, Loc.Y]);
+                    FrontView = new coord(tVis[Loc.X, Loc.Y + i], tImage[Loc.X, Loc.Y + i], tStory[Loc.X, Loc.Y + i], tTile[Loc.X, Loc.Y + i]);
+                    LeftView = new coord(tVis[Loc.X + i, Loc.Y], tImage[Loc.X + i, Loc.Y], tStory[Loc.X + i, Loc.Y], tTile[Loc.X + i, Loc.Y]);
+                    Console.WriteLine("right view: x: " + (Loc.X) + " y: " + (Loc.Y - i));
+                    Console.WriteLine("Front view: x: " + (Loc.X + i) + " y: " + (Loc.Y));
+                    Console.WriteLine("left view: x: " + (Loc.X) + " y: " + (Loc.Y + i));
+                    map[Loc.X, Loc.Y - i].Vis = true;
+                    map[Loc.X + i, Loc.Y].Vis = true;
+                    map[Loc.X, Loc.Y + i].Vis = true;
 
                 }
+
+                Console.WriteLine();
+                for (int l = 0; l < 5; l++)
+                {
+                    for (int k = 0; k < 5; k++)
+                    {
+                        Console.Write(map[l, k].Vis + " ");
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+
             }
-            catch (Exception e) { Console.WriteLine(e); }
+            catch (Exception e)
+            {
+                Console.WriteLine("SetView Error: " + e);
+
+            }
         }
 
         // function to move location by one map unit
         // 1 = left, 2 = foward, 3 = right
         public void move(int direction)
         {
+            Console.WriteLine("enter move");
             Console.WriteLine("before move Loc.X: " + Loc.X + " Loc.Y: " + Loc.Y);
 
             int i = 1;
@@ -155,8 +229,8 @@ namespace MazeGame
             {
                 Loc.X = Loc.X + i;
             }
-            setView();
             Console.WriteLine("After move Loc.X: " + Loc.X + " Loc.Y: " + Loc.Y);
+
         }
 
         //function rotate currentloction z access
@@ -164,34 +238,57 @@ namespace MazeGame
         //input: dir = 2 rotate left dir = 3 rotate right
         public void rotate(int dir)
         {
-
+            Console.WriteLine("enter Rotate");
             switch (Loc.Z)
             {
                 case 1:
                     if (dir == 2)
+                    {
+                        Console.WriteLine("Z = 1 rotate to 3");
                         Loc.Z = 3;
+                    }
                     else
+                    {
+                        Console.WriteLine("Z = 1 rotate to 4");
                         Loc.Z = 4;
+                    }
                     break;
                 case 2:
-                    if (dir == 3)
+                    if (dir == 2)
+                    {
+                        Console.WriteLine("Z = 2 rotate to 4");
                         Loc.Z = 4;
+                    }
                     else
+                    {
+                        Console.WriteLine("Z = 2 rotate to 3");
                         Loc.Z = 3;
+                    }
                     break;
                 case 3:
                     if (dir == 2)
+                    {
+                        Console.WriteLine("Z = 3 rotate to 2");
                         Loc.Z = 2;
+                    }
                     else
+                    {
+                        Console.WriteLine("Z = 3 rotate to 1");
                         Loc.Z = 1;
+                    }
                     break;
                 case 4:
-                    if (dir == 3)
-                        Loc.Z = 2;
-                    else
+                    if (dir == 2)
+                    {
+                        Console.WriteLine("Z = 4 rotate to 1");
                         Loc.Z = 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Z = 4 rotate to 2");
+                        Loc.Z = 2;
+                    }
                     break;
-                    //setView();
 
             }
         }
@@ -223,26 +320,38 @@ namespace MazeGame
 
         }
 
-        public coord rightView
+        public coord RightView
         {
             get
             {
-                return view[0];
+                return rightView;
+            }
+            set
+            {
+                rightView = value;
             }
         }
 
-        public coord frontView
+        public coord FrontView
         {
             get
             {
-                return view[1];
+                return frontView;
+            }
+            set
+            {
+                frontView = value;
             }
         }
-        public coord leftView
+        public coord LeftView
         {
             get
             {
-                return view[2];
+                return leftView;
+            }
+            set
+            {
+                leftView = value;
             }
         }
 
@@ -295,7 +404,27 @@ namespace MazeGame
 
                 return s;
             }
+
         }
 
+        public int[,] Image
+        {
+            get
+            {
+                int[,] I = new int[map.Length, map.Height];
+                int temp;
+                for (int i = 0; i < map.Length; i++)
+                {
+                    for (int j = 0; j < map.Height; j++)
+                    {
+                        temp = map[i, j].Image;
+                        I[j, i] = temp;
+                    }
+                }
+
+                return I;
+            }
+
+        }
     }
 }

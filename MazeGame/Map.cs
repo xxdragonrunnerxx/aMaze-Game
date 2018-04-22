@@ -52,12 +52,12 @@ namespace MazeGame
         {
             get
             {
-                return myMap[x, y];
+                return myMap[y, x];
             }
 
             set
             {
-                myMap[x, y] = value;
+                myMap[y, x] = value;
             }
         }
 
