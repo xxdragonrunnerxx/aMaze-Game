@@ -40,7 +40,7 @@ namespace MazeGame
     /// </summary>
     public partial class MainWindow : INotifyPropertyChanged
     {
-        //What panel is set to visable now 
+        //What panel is set to visible now 
         int[] panelValue = { 1, 1, 1 };//Bradley
         bool[,] mapView = new bool[5, 5];
         Game game;
@@ -60,7 +60,7 @@ namespace MazeGame
             getStory();
         }
 
-        private void reStart()
+        private void restart()
         {
             game.reset();
             setPanel();
@@ -98,9 +98,9 @@ namespace MazeGame
 
         private void setPanel()
         {
-            string[] img = { "source/Images/Left.png", "source/Images/LeftDoor.png", "source/Images/LeftCave.png",
-                "source/Images/Center.png", "source/Images/CenterDoor.png", "source/Images/CenterCave.png",
-                "source/Images/Right.png", "source/Images/RightDoor.png", "source/Images/RightCave.png"};
+            string[] img = { "source/Images/Left.png", "source/Images/LeftCave.png", "source/Images/LeftDoor.png",
+                "source/Images/Center.png", "source/Images/CenterCave.png", "source/Images/CenterDoor.png",
+                "source/Images/Right.png", "source/Images/RightCave.png", "source/Images/RightDoor.png"};
 
             setImage(LeftPanel, img[game.LeftImage]);
             setImage(CenterPanel, img[game.FrontImage + 3]);
@@ -111,9 +111,9 @@ namespace MazeGame
         {
             StoryBlock.Text = game.Story;
             Console.WriteLine(game.Story);
-            Button1.Content = game.Button2;
-            Button2.Content = game.Button1;
-            Button3.Content = game.Button3;
+            LeftButton.Content = game.Button2;
+            CenterButton.Content = game.Button1;
+            RightButton.Content = game.Button3;
         }
 
 
@@ -190,23 +190,18 @@ namespace MazeGame
             MenuGrid.Visibility = Visibility.Hidden;
         }
 
-        private void Button2_Click(object sender, RoutedEventArgs e)
+        private void EndTest_Click(object sender, RoutedEventArgs e)
         {
             MenuShadow.Visibility = Visibility.Hidden;
             MenuGrid.Visibility = Visibility.Hidden;
             setEnd();
         }
 
-        private void Button3_Click(object sender, RoutedEventArgs e)
+        private void text_Click(object sender, RoutedEventArgs e)
         {
             StoryBlock.Text = "I have entered new text.";
         }
-
-        private void Button4_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
+        
         private void Map_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < mapView.GetLength(0); i++)
@@ -410,29 +405,29 @@ namespace MazeGame
             MiniMap.Visibility = Visibility.Hidden;
         }
 
-        private void Button1_Click(object sender, RoutedEventArgs e)
+        private void CenterButton_Click(object sender, RoutedEventArgs e)
         {
             game.action(1);
             setPanel();
             getStory();
         }
-        private void Button2_Click_1(object sender, RoutedEventArgs e)
+        private void RightButton_Click(object sender, RoutedEventArgs e)
         {
             game.action(3);
             setPanel();
             getStory();
         }
 
-        private void Button3_Click_1(object sender, RoutedEventArgs e)
+        private void LeftButton_Click(object sender, RoutedEventArgs e)
         {
             game.action(2);
             setPanel();
             getStory();
         }
 
-        private void Button5_Click(object sender, RoutedEventArgs e)
+        private void restart_Click(object sender, RoutedEventArgs e)
         {
-            reStart();
+            restart();
         }
 
         //example button

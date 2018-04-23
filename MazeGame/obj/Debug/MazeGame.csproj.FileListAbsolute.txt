@@ -61,7 +61,6 @@ E:\aMaze-Game\MazeGame\obj\Debug\MazeGame.pdb
 R:\aMaze-Game\MazeGame\bin\Debug\MazeGame.exe.config
 R:\aMaze-Game\MazeGame\bin\Debug\MazeGame.exe
 R:\aMaze-Game\MazeGame\bin\Debug\MazeGame.pdb
-R:\aMaze-Game\MazeGame\obj\Debug\MazeGame.csprojResolveAssemblyReference.cache
 R:\aMaze-Game\MazeGame\obj\Debug\GUI.g.cs
 R:\aMaze-Game\MazeGame\obj\Debug\App.g.cs
 R:\aMaze-Game\MazeGame\obj\Debug\MazeGame_MarkupCompile.cache
@@ -73,3 +72,4 @@ R:\aMaze-Game\MazeGame\obj\Debug\MazeGame.csproj.GenerateResource.cache
 R:\aMaze-Game\MazeGame\obj\Debug\MazeGame.csproj.CoreCompileInputs.cache
 R:\aMaze-Game\MazeGame\obj\Debug\MazeGame.exe
 R:\aMaze-Game\MazeGame\obj\Debug\MazeGame.pdb
+R:\aMaze-Game\MazeGame\obj\Debug\MazeGame.csprojResolveAssemblyReference.cache

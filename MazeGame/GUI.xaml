@@ -46,16 +46,15 @@
         <Rectangle x:Name="StoryShadow" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="300" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1492" Opacity="0.4" Stretch="Fill"/>
         <TextBlock x:Name="StoryBlock" Margin="85,40,85,123" Grid.Row="1" TextWrapping="Wrap" Text="Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! Enter text here! "
                    RenderTransformOrigin="0.5,0.483" FontSize="20" FontWeight="Bold" FontFamily="Tempus Sans ITC" FontStyle="Italic" TextDecorations="Underline"/>
-        <Button x:Name="Button1" Content="Button" HorizontalAlignment="Left" Margin="10,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="482" Height="41" Click="Button3_Click_1"/>
-        <Button x:Name="Button2" Content="Button" HorizontalAlignment="Left" Margin="502,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="492" Height="41" Click="Button1_Click"/>
-        <Button x:Name="Button3" Content="Button" HorizontalAlignment="Left" Margin="999,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="483" Height="41" Click="Button2_Click_1" />
+        <Button x:Name="LeftButton" Content="Button" HorizontalAlignment="Left" Margin="10,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="482" Height="41" Click="LeftButton_Click"/>
+        <Button x:Name="CenterButton" Content="Button" HorizontalAlignment="Left" Margin="502,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="492" Height="41" Click="CenterButton_Click"/>
+        <Button x:Name="RightButton" Content="Button" HorizontalAlignment="Left" Margin="999,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="483" Height="41" Click="RightButton_Click" />
         <Rectangle x:Name="MenuShadow" Fill="Black" HorizontalAlignment="Left" Height="900" Margin="0,0,0,0" VerticalAlignment="Top" Width="1500"  Grid.RowSpan="2" Stretch="Fill" Opacity="0.9" Visibility="Hidden"/>
         <Grid x:Name="MenuGrid" Height="500" Margin="502,125,502,0" VerticalAlignment="Top" Grid.RowSpan="2" Visibility="Hidden">
             <Button x:Name="RETURN" Content="RETURN" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" Width="487" Click="RETURN_Click"/>
-            <Button x:Name="Cave" Content="EndTest" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,100,0,0" Click="Button2_Click"/>
-            <Button x:Name="Text" Content="Text" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,200,0,0" Click="Button3_Click"/>
-            <Button x:Name="Wall" Content="Wall" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,300,0,0" Click="Button4_Click"/>
-            <Button x:Name="Button5" Content="Restart" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,400,0,0" Click="Button5_Click"/>
+            <Button x:Name="EndTest" Content="End Test" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,100,0,0" Click="EndTest_Click"/>
+            <Button x:Name="Text" Content="Text" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,200,0,0" Click="text_Click"/>
+            <Button x:Name="restartButton" Content="Restart" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,300,0,0" Click="restart_Click"/>
         </Grid>
         <Grid x:Name="MiniMap" Grid.RowSpan="2" HorizontalAlignment="Center" Width="800" Height="800" VerticalAlignment="Center" Visibility="Hidden">
             <Grid.RowDefinitions>
