@@ -63,8 +63,6 @@ namespace MazeGame
         private void restart()
         {
             RETURN.Visibility = Visibility.Hidden;
-            EndTest.Visibility = Visibility.Hidden;
-            Text.Visibility = Visibility.Hidden;
             restartButton.Visibility = Visibility.Hidden;
             startButton.Visibility = Visibility.Visible;
             Title.Visibility = Visibility.Visible;
@@ -476,8 +474,6 @@ namespace MazeGame
             MenuShadow.Visibility = Visibility.Hidden;
             MenuGrid.Visibility = Visibility.Hidden;
             RETURN.Visibility = Visibility.Visible;
-            EndTest.Visibility = Visibility.Visible;
-            Text.Visibility = Visibility.Visible;
             restartButton.Visibility = Visibility.Visible;
             startButton.Visibility = Visibility.Hidden;
             Title.Visibility = Visibility.Hidden;
