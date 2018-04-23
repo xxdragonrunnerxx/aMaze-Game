@@ -14,27 +14,27 @@
         <Image x:Name="LeftPanel" Source ="source/Images/Left.png" HorizontalAlignment="Left" Height="870" Margin="0,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
         <Image x:Name="CenterPanel" Source ="source/Images/Center.png"  HorizontalAlignment="Left" Height="870" Margin="497,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
         <Image x:Name="RightPanel" Source ="source/Images/Right.png" HorizontalAlignment="Left" Height="870" Margin="994,0,0,0" VerticalAlignment="Top" Width="497" Grid.RowSpan="2" Stretch="Fill"/>
-        <ToolBar x:Name="ToolBar" Height="50" VerticalAlignment="Top" Margin="1,0,0,0" HorizontalAlignment="Left" Width="1491" Opacity="0.8">
-            <Image x:Name="Key1" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
-            <Image x:Name="Key2" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
-            <Image x:Name="Key3" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
-            <Image x:Name="Key4" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20"/>
+        <ToolBar x:Name="ToolBar" Height="50" VerticalAlignment="Top" Margin="1,0,0,0" HorizontalAlignment="Left" Width="1491" Opacity="0.8" Background="#FF0077FF">
+            <Image x:Name="Key1" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20" Visibility="Hidden"/>
+            <Image x:Name="Key2" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20" Visibility="Hidden"/>
+            <Image x:Name="Key3" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20" Visibility="Hidden"/>
+            <Image x:Name="Key4" Source ="source/Images/Key.png" Height="45" Margin="0,10,0,0" VerticalAlignment="Top" Width="20" Visibility="Hidden"/>
             <Image Margin="0,10,0,0" VerticalAlignment="Stretch" Width="1000"/>
-            <Button x:Name="Hint1" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="25">
+            <Button x:Name="Hint1" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="25" Visibility="Hidden">
                 <Button.Template>
                     <ControlTemplate>
                         <Image Source ="source/Images/Hint.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button x:Name="Hint2" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="45">
+            <Button x:Name="Hint2" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Visibility="Hidden">
                 <Button.Template>
                     <ControlTemplate>
                         <Image Source ="source/Images/Hint.png"/>
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button x:Name="Map" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Click="Map_Click">
+            <Button x:Name="Map" Height="25" Margin="0,10,0,0" VerticalAlignment="Top" Width="45" Click="Map_Click" ToolTip="Not shown" ToolTipOpening="Button_ToolTipOpening">
                 <Button.Template>
                     <ControlTemplate>
                         <Image Source ="source/Images/Map.png"/>
@@ -49,12 +49,13 @@
         <Button x:Name="LeftButton" Content="Button" HorizontalAlignment="Left" Margin="10,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="482" Height="41" Click="LeftButton_Click"/>
         <Button x:Name="CenterButton" Content="Button" HorizontalAlignment="Left" Margin="502,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="492" Height="41" Click="CenterButton_Click"/>
         <Button x:Name="RightButton" Content="Button" HorizontalAlignment="Left" Margin="999,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="483" Height="41" Click="RightButton_Click" />
-        <Rectangle x:Name="MenuShadow" Fill="Black" HorizontalAlignment="Left" Height="900" Margin="0,0,0,0" VerticalAlignment="Top" Width="1500"  Grid.RowSpan="2" Stretch="Fill" Opacity="0.9" Visibility="Hidden"/>
-        <Grid x:Name="MenuGrid" Height="500" Margin="502,125,502,0" VerticalAlignment="Top" Grid.RowSpan="2" Visibility="Hidden">
-            <Button x:Name="RETURN" Content="RETURN" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" Width="487" Click="RETURN_Click"/>
-            <Button x:Name="EndTest" Content="End Test" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,100,0,0" Click="EndTest_Click"/>
-            <Button x:Name="Text" Content="Text" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,200,0,0" Click="text_Click"/>
-            <Button x:Name="restartButton" Content="Restart" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,300,0,0" Click="restart_Click"/>
+        <Rectangle x:Name="MenuShadow" Fill="Black" HorizontalAlignment="Left" Height="900" Margin="0,0,0,0" VerticalAlignment="Top" Width="1500"  Grid.RowSpan="2" Stretch="Fill" Opacity="0.9"/>
+        <Grid x:Name="MenuGrid" Height="500" Margin="502,125,502,0" VerticalAlignment="Top" Grid.RowSpan="2">
+            <Button x:Name="RETURN" Content="Resume" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top" Width="487" Click="RETURN_Click" Visibility="Hidden"/>
+            <Button x:Name="EndTest" Content="End Test" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,100,0,0" Click="EndTest_Click" Visibility="Hidden"/>
+            <Button x:Name="Text" Content="Text" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,200,0,0" Click="text_Click" Visibility="Hidden"/>
+            <Button x:Name="restartButton" Content="Restart" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,300,0,0" Click="restart_Click" Visibility="Hidden"/>
+            <Button x:Name="startButton" Content="Start" Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,400,0,0" Click="startButton_Click"/>
         </Grid>
         <Grid x:Name="MiniMap" Grid.RowSpan="2" HorizontalAlignment="Center" Width="800" Height="800" VerticalAlignment="Center" Visibility="Hidden">
             <Grid.RowDefinitions>
@@ -101,6 +102,10 @@
         </Grid>
         <Rectangle x:Name="BlackOut" Fill="Black" HorizontalAlignment="Left" Height="900" Margin="0,0,0,0" VerticalAlignment="Top" Width="1500"  Grid.RowSpan="2" Stretch="Fill" Opacity="1" Visibility="Hidden"/>
         <Image x:Name="GameOver" HorizontalAlignment="Stretch" Grid.RowSpan="2" VerticalAlignment="Stretch" Visibility="Hidden"/>
+        <Button x:Name="again" Content="restart" HorizontalAlignment="Center" Margin="0,105,0,0" VerticalAlignment="Top" Width="75" Click="restart_Click" Visibility="Hidden" />
+        <TextBlock x:Name="rules" HorizontalAlignment="Center" Height="269" Margin="0,212,0,0" TextWrapping="Wrap" Text="Welcome to The Labrynth!&#x0a;&#x0a;&#x0a;Try to survive by finding the key to the exit&#x0a;without running into any walls." VerticalAlignment="Top" Width="1274" Foreground="#FFF7F7F7" FontSize="36" TextAlignment="Center"/>
+        <TextBlock x:Name="Title" HorizontalAlignment="Center" Height="104" Margin="0,50,0,0" TextWrapping="Wrap" Text="aMAZE Game" VerticalAlignment="Top" Width="497" Foreground="#FFFF0303" FontSize="72" TextAlignment="Center"/>
+
 
     </Grid>
 </Window>

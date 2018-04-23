@@ -35,7 +35,8 @@ namespace MazeGame
         // global variables
         private String name;
         private Items status;
-        //private location loc;
+        public int[] keys;
+        
 
         // constructor
         //public Character(String _name, int life, int keyNum, location _loc)
@@ -43,7 +44,11 @@ namespace MazeGame
         {
             name = _name;
             status = new Items(life, keyNum);
-            //loc = _loc;
+            keys = new int[keyNum];
+            for(int i = 0; i < keyNum; i++)
+            {
+                keys[i] = -1;
+            }
         }
 
         // function to check if character is alive

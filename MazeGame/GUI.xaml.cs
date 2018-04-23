@@ -62,31 +62,48 @@ namespace MazeGame
 
         private void restart()
         {
+            RETURN.Visibility = Visibility.Hidden;
+            EndTest.Visibility = Visibility.Hidden;
+            Text.Visibility = Visibility.Hidden;
+            restartButton.Visibility = Visibility.Hidden;
+            startButton.Visibility = Visibility.Visible;
+            Title.Visibility = Visibility.Visible;
+            rules.Visibility = Visibility.Visible;
+            again.Visibility = Visibility.Hidden;
+            MenuShadow.Visibility = Visibility.Visible;
+            MenuGrid.Visibility = Visibility.Visible;
+            GameOver.Visibility = Visibility.Hidden;
+            BlackOut.Visibility = Visibility.Hidden;
             game.reset();
             setPanel();
             getStory();
         }
 
-        private void setEnd()
+        private void isEnd()
         {
+            Console.WriteLine("game.win: " + game.win);
             string[] img = { "source/Images/Died.png", "source/Images/you escaped.png"};
-
-            if (Won())
+            bool show = false;
+            if (game.win)
+            {
+                show = true;
                 setImage(GameOver, img[1]);
-            else
+            }
+            if (!game.Alive)
+            {
+                show = true;
                 setImage(GameOver, img[0]);
-            GameOver.Visibility = Visibility.Visible;
-            BlackOut.Visibility = Visibility.Visible;
-        }
+            }
+            if (show)
+            {
+                again.Visibility = Visibility.Visible;
+                ReturnMini.Visibility = Visibility.Visible;
+                GameOver.Visibility = Visibility.Visible;
+                BlackOut.Visibility = Visibility.Visible;
+            }
 
-        private bool Won()
-        {
-            bool win = false;
-            if (game.Alive)
-                if (game.Flag == 0)
-                    win = true;
-            return win;
         }
+        
 
         private void setImage(Image pnlimg, string path)
         {
@@ -98,13 +115,13 @@ namespace MazeGame
 
         private void setPanel()
         {
-            string[] img = { "source/Images/Left.png", "source/Images/LeftCave.png", "source/Images/LeftDoor.png",
-                "source/Images/Center.png", "source/Images/CenterCave.png", "source/Images/CenterDoor.png",
-                "source/Images/Right.png", "source/Images/RightCave.png", "source/Images/RightDoor.png"};
+            string[] img = { "source/Images/Left.png", "source/Images/LeftCave.png", "source/Images/LeftCave.png", "source/Images/LeftDoor.png",
+                "source/Images/Center.png", "source/Images/CenterCave.png", "source/Images/CenterCave.png", "source/Images/CenterDoor.png",
+                "source/Images/Right.png", "source/Images/RightCave.png", "source/Images/RightCave.png", "source/Images/RightDoor.png"};
 
             setImage(LeftPanel, img[game.LeftImage]);
-            setImage(CenterPanel, img[game.FrontImage + 3]);
-            setImage(RightPanel, img[game.RightImage + 6]);
+            setImage(CenterPanel, img[game.FrontImage + 4]);
+            setImage(RightPanel, img[game.RightImage + 8]);
         }
 
         private void getStory()
@@ -135,7 +152,7 @@ namespace MazeGame
                     if (game.currentLoc.X == i && game.currentLoc.Y == j)
                     {
                         Console.WriteLine("game.currentLoc.X: " + game.currentLoc.X + " game.currentLoc.Y: " + game.currentLoc.Y + " i: " + i + " j: " + j);
-                        setImage(mMap[i, j], "source/Images/index.png");
+                        setImage(mMap[i, j], "source/Images/person.png");
                         mMap[i, j].Visibility = Visibility.Visible;
                     }
                     else if (tVis[i, j] == false)
@@ -144,7 +161,7 @@ namespace MazeGame
                     }
                     else if (game.tiles[i, j] == 1)
                     {
-                        setImage(mMap[i, j], "source/Images/RockMap120.png");
+                        setImage(mMap[i, j], "source/Images/ground.png");
                         mMap[i, j].Visibility = Visibility.Visible;
                     }
                     else if (game.tiles[i, j] == 2)
@@ -152,9 +169,14 @@ namespace MazeGame
                         setImage(mMap[i, j], "source/Images/Key@2x.png");
                         mMap[i, j].Visibility = Visibility.Visible;
                     }
-                    else
+                    else if (game.tiles[i, j] == 3)
                     {
                         setImage(mMap[i, j], "source/Images/Hint@2x.png");
+                        mMap[i, j].Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        setImage(mMap[i, j], "source/Images/RockMap120.png");
                         mMap[i, j].Visibility = Visibility.Visible;
                     }
                 }
@@ -194,7 +216,7 @@ namespace MazeGame
         {
             MenuShadow.Visibility = Visibility.Hidden;
             MenuGrid.Visibility = Visibility.Hidden;
-            setEnd();
+            isEnd();
         }
 
         private void text_Click(object sender, RoutedEventArgs e)
@@ -408,9 +430,12 @@ namespace MazeGame
         private void CenterButton_Click(object sender, RoutedEventArgs e)
         {
             game.action(1);
+            isEnd();
+            key();
             setPanel();
             getStory();
         }
+        
         private void RightButton_Click(object sender, RoutedEventArgs e)
         {
             game.action(3);
@@ -425,10 +450,40 @@ namespace MazeGame
             getStory();
         }
 
+        private void key()
+        {
+            if (game.haveKey(0))
+            {
+                Key1.Visibility = Visibility.Visible;
+            }
+
+        }
+
+        private void Button_ToolTipOpening(object sender, ToolTipEventArgs e)
+        {
+            // ... Set ToolTip on Button before it is shown.
+            Button b = sender as Button;
+            b.ToolTip = "MiniMap";
+        }
+
         private void restart_Click(object sender, RoutedEventArgs e)
         {
             restart();
         }
+
+        private void startButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuShadow.Visibility = Visibility.Hidden;
+            MenuGrid.Visibility = Visibility.Hidden;
+            RETURN.Visibility = Visibility.Visible;
+            EndTest.Visibility = Visibility.Visible;
+            Text.Visibility = Visibility.Visible;
+            restartButton.Visibility = Visibility.Visible;
+            startButton.Visibility = Visibility.Hidden;
+            Title.Visibility = Visibility.Hidden;
+            rules.Visibility = Visibility.Hidden;
+        }
+
 
         //example button
         //will pass move to game.option(1)

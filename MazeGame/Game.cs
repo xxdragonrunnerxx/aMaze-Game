@@ -51,7 +51,7 @@ namespace MazeGame
         int flag;
         public int[,] tiles, story;
         public bool[,] vis;
-        bool win;
+        public bool win;
         int resetLevel;
         int option1, option2, option3;
         string responce = "";
@@ -66,7 +66,7 @@ namespace MazeGame
         {
             resetLevel = lev;
             level = new Map_Level(lev);
-            player = new Character("Bob", 10, 1);
+            player = new Character("Bob", 10, 4);
             tiles = level.Tiles;
             story = level.Story;
             flag = 0;
@@ -110,7 +110,7 @@ namespace MazeGame
                     break;
                 default:
                     option = option1;
-                    Console.WriteLine("default: foward");
+                    Console.WriteLine("Enter");
                     dir = "foward";
                     switch (option)
                     {
@@ -125,12 +125,22 @@ namespace MazeGame
                             level.move(button);
                             break;
                         case 2:
-                            Console.WriteLine("default case 2: chest move");
-                            responce = "You move " + dir + " and find a key in a chest. ";
+                            Console.WriteLine("default case 2: keys");
+                            responce = "You move " + dir + " and find a KEY in the room. Where does this got to? ";
+                            player.keys[0] = 1;
+                            Console.WriteLine("player keys " + player.keys[0] + " avaliable");
                             level.move(button);
-                            player.newKey = 1;
                             break;
-
+                        case 3:
+                            Console.WriteLine("Option Case 3: door");
+                            if (player.keys[0]==1)
+                            {
+                                win = true;
+                            }else
+                            {
+                                responce = "The door is locked! You need a KEY to get through this door! ";
+                            }
+                            break;
                     }
                     break;
             }
@@ -400,6 +410,15 @@ namespace MazeGame
             {
                 return win;
             }
+        }
+
+        internal bool haveKey(int v)
+        {
+            if (player.keys[v] == 1)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
